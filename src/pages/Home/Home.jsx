@@ -1,12 +1,8 @@
-import React from 'react';
-import styles from './Home.module.scss';
+import React from "react";
+import styles from "./Home.module.scss";
 
 const Home = () => {
-  return (
-    <div>
-
-    </div>
-  );
+  return <div></div>;
 };
 
 export default Home;

@@ -1,0 +1,111 @@
+.header {
+  width: 100%;
+  margin-top: 50px;
+
+  .container {
+    max-width: 1110px;
+    margin: 0 auto;
+    padding: 0 15px;
+
+    .content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      //navigate
+      .navigate {
+        display: flex;
+        align-items: center;
+        gap: 45px;
+
+        a {
+          font-weight: 400;
+          font-size: 15px;
+          line-height: 140%;
+          letter-spacing: 0.02em;
+          color: #000000;
+
+          &:hover,
+          &.active {
+            color: #6e9c9f;
+          }
+        }
+      }
+
+      .service {
+        display: flex;
+        align-items: center;
+        gap: 67px;
+
+        .number {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+
+          > {
+            button {
+              position: relative;
+              border: none;
+              outline: none;
+              width: 27px;
+              height: 27px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              background-color: transparent;
+              transition: all 0.3s ease;
+              z-index: 1;
+
+              &:hover {
+                background: #6e9c9f;
+              }
+            }
+
+            a {
+              font-weight: 400;
+              font-size: 15px;
+              line-height: 140%;
+              letter-spacing: 0.02em;
+              color: #000000;
+            }
+          }
+        }
+
+        .cart {
+          width: 24px;
+          height: 24px;
+          position: relative;
+
+          a {
+            display: block;
+
+            img {
+              max-width: 100%;
+              object-fit: cover;
+              object-position: center center;
+            }
+          }
+
+          > {
+            span {
+              position: absolute;
+              left: 90%;
+              bottom: 100%;
+
+              display: inline-flex;
+              width: 15px;
+              height: 15px;
+              border-radius: 100%;
+              background: #998e78;
+              color: #fff;
+              font-weight: 400;
+              font-size: 9px;
+              justify-content: center;
+              align-items: center;
+            }
+          }
+        }
+      }
+    }
+  }
+}

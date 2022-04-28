@@ -1,11 +1,12 @@
-import React from 'react';
-import styles from './IButton.module.scss';
+import React from "react";
+import styles from "./IButton.module.scss";
 
-const IButton = ({children, variant, ...props}) => {
-
+const IButton = ({ children, variant, ...props }) => {
   return (
     <button
-      className={`${styles.button} ${variant === 'primary' && styles.primary} ${variant === 'more' && styles.more}`}
+      className={`${styles.button} ${variant === "primary" && styles.primary} ${
+        variant === "more" && styles.more
+      }`}
       {...props}
     >
       {children}

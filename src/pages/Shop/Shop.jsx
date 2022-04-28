@@ -1,12 +1,8 @@
-import React from 'react';
-import styles from './Shop.module.scss';
+import React from "react";
+import styles from "./Shop.module.scss";
 
 const Shop = () => {
-  return (
-    <div>
-
-    </div>
-  );
+  return <div></div>;
 };
 
 export default Shop;

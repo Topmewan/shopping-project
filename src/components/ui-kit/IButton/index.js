@@ -1,1 +1,1 @@
-export {default} from './IButton';
+export { default } from "./IButton";

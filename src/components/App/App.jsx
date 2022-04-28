@@ -1,13 +1,8 @@
 import React from "react";
-import styles from "./App.module.scss";
-import IButton from "../ui-kit/IButton";
+import Layout from "../Layout";
 
 const App = () => {
-  return (
-    <div>
-
-    </div>
-  );
+  return <Layout />;
 };
 
 export default App;
