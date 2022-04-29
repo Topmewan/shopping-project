@@ -9,7 +9,7 @@ const Layout = () => {
     <div className={styles.wrapper}>
       <Navbar />
       <AppRoutes />
-      {/*<Footer/>*/}
+      <Footer/>
     </div>
   );
 };

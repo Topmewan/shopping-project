@@ -15,11 +15,13 @@ html {
 
 html,
 body {
+  max-width: 100%;
   margin: 0;
   padding: 0;
   height: 100%;
   font-family: "Raleway", sans-serif;
   font-size: 16px;
+  min-width: 320px;
 }
 
 a {
