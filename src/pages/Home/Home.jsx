@@ -5,16 +5,14 @@ import Collection from "./Collection";
 import Important from "./Important";
 import Team from "./Team";
 
-
 const Home = () => {
   return (
     <main className={styles.wrapper}>
-      <New/>
-      <Collection/>
-      <Important/>
-      <Team/>
+      <New />
+      <Collection />
+      <Important />
+      <Team />
     </main>
-
   );
 };
 

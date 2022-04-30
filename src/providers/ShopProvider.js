@@ -1,25 +1,21 @@
-import {ShopContext} from "../context/ShopContext";
-import {useFetch} from "../hooks/useFetch";
+import { ShopContext } from "../context/ShopContext";
+import { useFetch } from "../hooks/useFetch";
 
-const ShopProvider = ({children}) => {
+const ShopProvider = ({ children }) => {
+  const { data, isLoading, isError } = useFetch(
+    "http://localhost:5000/shopItems"
+  );
 
-  const {data, isLoading, isError} = useFetch('http://localhost:5000/shopItems');
-
-  const threeItems = data.slice(0,3);
-
+  const threeItems = data.slice(0, 3);
 
   const val = {
     data,
     threeItems,
     isLoading,
-    isError
-  }
+    isError,
+  };
 
-  return (
-    <ShopContext.Provider value={val}>
-      {children}
-    </ShopContext.Provider>
-  );
+  return <ShopContext.Provider value={val}>{children}</ShopContext.Provider>;
 };
 
 export default ShopProvider;

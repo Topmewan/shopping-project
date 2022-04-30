@@ -5,12 +5,4 @@ import Layout from "./Layout";
 import Navbar from "./Navbar";
 import Typography from "./Typography";
 
-
-export {
-  App,
-  CardItem,
-  Layout,
-  Footer,
-  Navbar,
-  Typography,
-}
+export { App, CardItem, Layout, Footer, Navbar, Typography };

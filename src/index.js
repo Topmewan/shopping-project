@@ -1,16 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import {BrowserRouter} from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import "./index.scss";
 import ShopProvider from "./providers/ShopProvider";
-import {App} from "./components";
+import { App } from "./components";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <ShopProvider>
-        <App/>
+        <App />
       </ShopProvider>
     </BrowserRouter>
   </React.StrictMode>
