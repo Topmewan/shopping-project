@@ -1,19 +1,20 @@
 import React from 'react';
-import Title from "../../../components/Title";
-import IButton from "../../../components/ui-kit/IButton";
-import ph from './../../../assets/adam-winger-fI-TKWjKYls-unsplash 1.png';
+import ph from '../../../components/ui-kit/assets/adam-winger-fI-TKWjKYls-unsplash 1.png';
+import {Link} from "react-router-dom";
+import {Typography} from "../../../components";
+import {IButton} from "../../../components/ui-kit";
 
 import styles from './Team.module.scss';
-import {Link} from "react-router-dom";
+
 
 
 const Team = () => {
   return (
     <section className={styles.team}>
       <div className={styles.container}>
-        <Title>
+        <Typography variant='subtitle'>
           Команда Мечты
-        </Title>
+        </Typography>
         <div className={styles.feature}>
           <div className={styles.left}>
             <img src={ph} alt=""/>

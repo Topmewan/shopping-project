@@ -1,5 +1,6 @@
 import IButton from "./IButton";
-
-export default {
+import Spinner from "./Spinner";
+export  {
   IButton,
+  Spinner
 };

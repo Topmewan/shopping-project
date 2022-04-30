@@ -1,14 +1,16 @@
 import React from 'react';
+import {Typography} from "../../../components";
+
 import styles from './Important.module.scss';
-import Title from "../../../components/Title";
+
 
 const Important = () => {
   return (
     <section className={styles.important}>
       <div className={styles.container}>
-        <Title>
+        <Typography variant='subtitle'>
           Что для нас важно
-        </Title>
+        </Typography>
         <div className={styles.grid}>
 
           <div className={styles.item}>

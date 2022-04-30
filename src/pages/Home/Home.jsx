@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Home.module.scss";
+import New from "./New";
 import Collection from "./Collection";
-import New from "./New/New";
 import Important from "./Important";
 import Team from "./Team";
 

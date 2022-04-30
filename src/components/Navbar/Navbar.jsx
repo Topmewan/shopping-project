@@ -1,9 +1,9 @@
 import React from "react";
 import styles from "./Navbar.module.scss";
 import {Link, NavLink} from "react-router-dom";
-import logo from "../../assets/navbar/Лого.svg";
-import cart from "../../assets/navbar/shopping-bags 1.svg";
-import phone from "../../assets/navbar/telephone 1.svg";
+import logo from "../ui-kit/assets/navbar/Лого.svg";
+import cart from "../ui-kit/assets/navbar/shopping-bags 1.svg";
+import phone from "../ui-kit/assets/navbar/telephone 1.svg";
 
 const Navbar = () => {
   return (
@@ -17,25 +17,25 @@ const Navbar = () => {
           <nav className={styles.navigate}>
             <NavLink
               to="/"
-              className={({isActive}) => isActive && styles.active}
+              className={({isActive}) => isActive ? styles.active : ''}
             >
               Главная
             </NavLink>
             <NavLink
               to="/shop"
-              className={({isActive}) => isActive && styles.active}
+              className={({isActive}) => isActive ? styles.active : ''}
             >
               Магазин
             </NavLink>
             <NavLink
               to="/about"
-              className={({isActive}) => isActive && styles.active}
+              className={({isActive}) => isActive ? styles.active : ''}
             >
               О бренде
             </NavLink>
             <NavLink
               to="/contacts"
-              className={({isActive}) => isActive && styles.active}
+              className={({isActive}) => isActive ? styles.active : ''}
             >
               Контакты
             </NavLink>

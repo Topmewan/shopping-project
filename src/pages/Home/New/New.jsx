@@ -1,7 +1,9 @@
-import IButton from "../../../components/ui-kit/IButton";
-import styles from './New.module.scss';
-import arrow from '../../../assets/arrow.svg';
+import arrow from '../../../components/ui-kit/assets/arrow.svg';
 import {Link} from "react-router-dom";
+import {Typography} from "../../../components";
+import {IButton} from "../../../components/ui-kit";
+import styles from './New.module.scss';
+
 
 
 const New = () => {
@@ -11,7 +13,8 @@ const New = () => {
       top: 700,
       left: 0,
       behavior: 'smooth'
-    })
+    });
+
   }
   return (
     <section className={styles.new}>
@@ -19,8 +22,10 @@ const New = () => {
         <div className={styles.row}>
           <div className={styles.left}>
             <div className={styles.action}>
-              <h1>Новые поступления
-                в этом сезоне</h1>
+              <Typography variant='title'>
+                Новые поступления
+                в этом сезоне
+              </Typography>
               <p>Утонченные сочетания и бархатные оттенки - вот то, что вы искали в этом сезоне. Время
                 исследовать.</p>
               <div>
