@@ -1,19 +1,21 @@
 .card {
-  flex: 1;
+  width: 100%;
+  max-width: 350px;
   display: flex;
   flex-direction: column;
   gap: 24px;
   align-items: center;
+  justify-content: space-between;
 
   .top {
-    position: relative;
     cursor: pointer;
+    background-color: gray;
+    position: relative;
 
     img {
       max-width: 100%;
       object-fit: cover;
       object-position: center center;
-      height: auto;
     }
 
     .overlay {
@@ -28,6 +30,7 @@
       background: rgba(110, 156, 159, 0.64);
       opacity: 0;
       transition: opacity 0.5s ease;
+
     }
 
     &:hover .overlay {
@@ -40,6 +43,7 @@
     flex-direction: column;
     align-items: center;
     gap: 7px;
+
 
     p {
       font-style: normal;

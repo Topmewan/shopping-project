@@ -1,7 +1,8 @@
 import React from "react";
 import styles from "./Filter.module.scss";
+import {filterValues} from "../../../utils/data/mock";
 
-const Filter = ({ getFilter, filterVal }) => {
+const Filter = ({getFilter, filterVal}) => {
   return (
     <ul className={styles.filters}>
       {filterValues.map((filter, idx) => (
