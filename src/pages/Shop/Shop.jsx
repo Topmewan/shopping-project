@@ -1,59 +1,64 @@
-import React, {useContext, useState} from "react";
-import {ShopContext} from "../../context/ShopContext";
+import React from "react";
+
 import {CardItem, Typography} from "../../components";
-import styles from "./Shop.module.scss";
 import {Spinner} from "../../components/ui-kit";
 import Filter from "./Filter/Filter";
-import {Pagination} from 'antd';
+import {Pagination} from "antd";
+import {IButton} from "../../components/ui-kit";
+import {useShopItems} from "./useShopItems";
 
+import styles from "./Shop.module.scss";
 
 const Shop = () => {
-  const [filter, setFilter] = useState("all");
-  const [page, setPage] = useState(1);
 
-  const {data: items, isLoading} = useContext(ShopContext);
-
-
-  const newItems = items.filter((item) => {
-    if (!filter || filter === "all") return true;
-    return item.category === filter;
-  });
-
-  const pagItems = newItems.filter((item, idx) => {
-    return idx + 1 <= page * 9 && idx + 1 >= page * 9 - 9
-  })
-
-  const getFilter = (val) => {
-    setFilter(val);
-    setPage(1);
-  };
+  const {
+    filter,
+    getFilter,
+    filteredItems,
+    sortedItems,
+    page,
+    setPage,
+    setSortBy,
+    isLoading
+  } = useShopItems();
 
   return (
     <section className={styles.shop}>
       <div className={styles.container}>
         <Typography variant="title">Магазин</Typography>
-        {/*<Filter getFilter={getFilter} filterVal={filter}/>*/}
-        <p>Показано {pagItems.length} из {newItems.length} товаров</p>
-        <div className={styles.list}>
-          {isLoading
-            ? <Spinner/>
-            : pagItems.map((item) => (
-              <CardItem key={item.id} item={item}/>
-            ))
-          }
+        <Filter getFilter={getFilter} filterVal={filter}/>
+        <div className={styles.sort}>
+          <IButton variant="primary" onClick={() => setSortBy("up")}>
+            По возрастанию
+          </IButton>
+          <IButton variant="primary" onClick={() => setSortBy("down")}>
+            По убыванию
+          </IButton>
         </div>
-        <p>Показано {pagItems.length} из {newItems.length} товаров</p>
+
+        <p>
+          Показано {sortedItems().length} из {filteredItems.length} товаров
+        </p>
+        <div className={styles.list}>
+          {isLoading ? (
+            <Spinner/>
+          ) : (
+           sortedItems().map((item) => <CardItem key={item.id} item={item}/>)
+          )}
+        </div>
+        <p>
+          Показано {sortedItems().length} из {filteredItems.length} товаров
+        </p>
 
         <div className={styles.pagination}>
           <Pagination
             simple
             onChange={setPage}
             current={page}
-            total={newItems.length}
+            total={filteredItems.length}
             pageSize={9}
           />
         </div>
-
       </div>
     </section>
   );

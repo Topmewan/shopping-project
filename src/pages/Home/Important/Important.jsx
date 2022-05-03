@@ -1,7 +1,7 @@
 import React from "react";
 
 import styles from "./Important.module.scss";
-import {Typography} from "../../../components";
+import { Typography } from "../../../components";
 
 const Important = () => {
   return (

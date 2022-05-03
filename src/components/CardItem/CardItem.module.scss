@@ -30,7 +30,6 @@
       background: rgba(110, 156, 159, 0.64);
       opacity: 0;
       transition: opacity 0.5s ease;
-
     }
 
     &:hover .overlay {
@@ -43,7 +42,6 @@
     flex-direction: column;
     align-items: center;
     gap: 7px;
-
 
     p {
       font-style: normal;

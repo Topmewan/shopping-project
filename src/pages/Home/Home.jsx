@@ -4,14 +4,23 @@ import New from "./New";
 import Collection from "./Collection";
 import Important from "./Important";
 import Team from "./Team";
+import {useCollection} from "./useCollection";
+
 
 const Home = () => {
+
+  const {newCollectionItems, isLoading, isError} = useCollection()
+
   return (
     <main className={styles.wrapper}>
-      <New />
-      <Collection />
-      <Important />
-      <Team />
+      <New/>
+      <Collection
+        newCollectionItems={newCollectionItems}
+        isLoading={isLoading}
+        isError={isError}
+      />
+      <Important/>
+      <Team/>
     </main>
   );
 };

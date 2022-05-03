@@ -1,3 +1,5 @@
 import IButton from "./IButton";
 import Spinner from "./Spinner";
-export { IButton, Spinner };
+import Select from "./Select";
+
+export { IButton, Spinner, Select };
