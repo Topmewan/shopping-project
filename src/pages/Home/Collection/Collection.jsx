@@ -1,11 +1,11 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { CardItem, Typography } from "../../../components";
 import { IButton, Spinner } from "../../../components/ui-kit";
 
 import styles from "./Collection.module.scss";
 
-const Collection = ({newCollectionItems,isLoading,isError}) => {
+const Collection = ({ newCollectionItems, isLoading, isError }) => {
   const navigate = useNavigate();
 
   return (
@@ -13,11 +13,13 @@ const Collection = ({newCollectionItems,isLoading,isError}) => {
       <div className={styles.container}>
         <Typography variant="subtitle">Новая колекция</Typography>
         <div className={styles.list}>
-          {isLoading &&  <Spinner/>}
+          {isLoading && <Spinner />}
           {isError && <h1>{isError}</h1>}
           <>
             {newCollectionItems.length > 0 || !isError ? (
-              newCollectionItems.map((item) => <CardItem key={item.id} item={item} />)
+              newCollectionItems.map((item) => (
+                <CardItem key={item.id} item={item} />
+              ))
             ) : (
               <h1>No data</h1>
             )}

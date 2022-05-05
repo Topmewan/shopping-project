@@ -1,16 +1,15 @@
 import React from "react";
 
-import {CardItem, Typography} from "../../components";
-import {Spinner} from "../../components/ui-kit";
+import { CardItem, Typography } from "../../components";
+import { Spinner } from "../../components/ui-kit";
 import Filter from "./Filter/Filter";
-import {Pagination} from "antd";
-import {IButton} from "../../components/ui-kit";
-import {useShopItems} from "./useShopItems";
+import { Pagination } from "antd";
+import { IButton } from "../../components/ui-kit";
+import { useShopItems } from "./useShopItems";
 
 import styles from "./Shop.module.scss";
 
 const Shop = () => {
-
   const {
     filter,
     getFilter,
@@ -19,14 +18,14 @@ const Shop = () => {
     page,
     setPage,
     setSortBy,
-    isLoading
+    isLoading,
   } = useShopItems();
 
   return (
     <section className={styles.shop}>
       <div className={styles.container}>
         <Typography variant="title">Магазин</Typography>
-        <Filter getFilter={getFilter} filterVal={filter}/>
+        <Filter getFilter={getFilter} filterVal={filter} />
         <div className={styles.sort}>
           <IButton variant="primary" onClick={() => setSortBy("up")}>
             По возрастанию
@@ -41,9 +40,9 @@ const Shop = () => {
         </p>
         <div className={styles.list}>
           {isLoading ? (
-            <Spinner/>
+            <Spinner />
           ) : (
-           sortedItems().map((item) => <CardItem key={item.id} item={item}/>)
+            sortedItems().map((item) => <CardItem key={item.id} item={item} />)
           )}
         </div>
         <p>

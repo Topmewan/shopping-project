@@ -1,12 +1,11 @@
-import {useEffect} from "react";
+import { useEffect } from "react";
 
-import {useDispatch, useSelector} from "react-redux";
-import {fetchItems} from "../../feature/reducers/Items/items.actions";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchItems } from "../../feature/reducers/Items/items.actions";
 
 export const useCollection = () => {
-
   const dispatch = useDispatch();
-  const {shopItems, isLoading, isError} = useSelector(state => state.items);
+  const { shopItems, isLoading, isError } = useSelector((state) => state.items);
 
   const newCollectionItems = shopItems.slice(0, 3);
 
@@ -17,6 +16,6 @@ export const useCollection = () => {
   return {
     newCollectionItems,
     isLoading,
-    isError
+    isError,
   };
-}
+};

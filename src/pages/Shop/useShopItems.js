@@ -1,13 +1,12 @@
-import {useEffect, useState} from "react";
-import {useDispatch, useSelector} from "react-redux";
-import {setFilter} from "../../feature/reducers/Filter/filter.slice";
-import {fetchItems} from "../../feature/reducers/Items/items.actions";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setFilter } from "../../feature/reducers/Filter/filter.slice";
+import { fetchItems } from "../../feature/reducers/Items/items.actions";
 
 export const useShopItems = () => {
   const dispatch = useDispatch();
-  const {shopItems, isLoading} = useSelector(state => state.items);
-  const filter = useSelector(state => state.filter);
-
+  const { shopItems, isLoading } = useSelector((state) => state.items);
+  const filter = useSelector((state) => state.filter);
 
   const [page, setPage] = useState(1);
   const [sortBy, setSortBy] = useState("");
@@ -40,10 +39,6 @@ export const useShopItems = () => {
     });
   };
 
-  useEffect(() => {
-    dispatch(fetchItems());
-  }, [dispatch])
-
   return {
     filter,
     getFilter,
@@ -52,6 +47,6 @@ export const useShopItems = () => {
     page,
     setPage,
     setSortBy,
-    isLoading
+    isLoading,
   };
 };

@@ -1,0 +1,68 @@
+@import "../../../index.scss";
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+
+  td {
+    text-align: center;
+  }
+
+  thead {
+    border-bottom: 1px solid #cccccc;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 140%;
+    letter-spacing: 0.02em;
+    color: #000000;
+
+    td {
+      padding-bottom: 26px;
+    }
+
+    td:first-child {
+      text-align: left;
+      width: 40%;
+    }
+  }
+
+  tbody {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 140%;
+
+    letter-spacing: 0.02em;
+
+    color: #000000;
+
+    td {
+      padding: 23px 0;
+
+      input[type="number"] {
+        width: 47px;
+        height: 47px;
+        @include input-number;
+      }
+    }
+  }
+
+  .info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    .delete {
+      cursor: pointer;
+      width: 12px;
+      height: 12px;
+    }
+
+    img {
+      max-width: 137px;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+}

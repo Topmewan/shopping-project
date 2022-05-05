@@ -1,0 +1,61 @@
+.cart {
+  width: 100%;
+  flex: 1 0 auto;
+
+  .container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 15px;
+
+    > {
+      h1 {
+        margin-top: 70px;
+        margin-bottom: 50px;
+      }
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      gap: 70px;
+
+      .extra {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .coupon {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+
+          input[type="text"] {
+            padding-bottom: 23px;
+            border: none;
+            outline: none;
+            border-bottom: 1px solid #000;
+
+            font-style: normal;
+            font-weight: 500;
+            font-size: 17px;
+            line-height: 140%;
+            letter-spacing: 0.02em;
+
+            color: #868686;
+          }
+        }
+      }
+
+      .total {
+        align-self: flex-end;
+        text-align: left;
+
+        .action {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+        }
+      }
+    }
+  }
+}

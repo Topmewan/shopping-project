@@ -1,6 +1,7 @@
 @import-normalize;
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;700&family=Raleway:wght@400;500;700;900&display=swap");
 @import "antd/dist/antd.css";
+@import "react-toastify/dist/ReactToastify.css";
 html {
   box-sizing: border-box;
 }
@@ -31,4 +32,19 @@ a {
 
 ul li {
   list-style: none;
+}
+
+@mixin input-number {
+  border: 1px solid #afafaf;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 140%;
+  letter-spacing: 0.02em;
+  color: #000000;
+  text-align: center;
+
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    appearance: none;
+  }
 }
