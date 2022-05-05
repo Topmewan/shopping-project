@@ -1,0 +1,62 @@
+@import "./../../../../index.scss";
+
+td {
+  padding: 23px 0;
+
+  input[type="number"] {
+    width: 47px;
+    height: 47px;
+    @include input-number;
+  }
+
+  .info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    .delete {
+      cursor: pointer;
+      width: 12px;
+      height: 12px;
+    }
+
+    img {
+      max-width: 137px;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .deep {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+
+      .footer {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        .color,
+        .size {
+          width: 30px;
+          height: 30px;
+        }
+
+        .color {
+          border-radius: 100%;
+        }
+
+        .size {
+          font-size: 14px;
+          font-weight: 600;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          text-transform: uppercase;
+          border: 1px solid #000000;
+        }
+      }
+    }
+  }
+}

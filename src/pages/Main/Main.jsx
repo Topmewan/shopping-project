@@ -1,20 +1,20 @@
-import React, { useState } from "react";
-import { CardItem, Typography } from "../../components";
-import { Spinner } from "../../components/ui-kit";
-import { useMain } from "./useMain";
-import MainCard from "./MainCard";
+import React, { useState } from 'react';
+import { CardItem, Typography } from '../../components';
+import { Spinner } from '../../components/ui-kit';
+import { useMain } from './useMain';
+import MainCard from './MainCard';
 
-import styles from "./Main.module.scss";
-import { useDispatch } from "react-redux";
-import { addToCart } from "../../feature/reducers/Cart/cart.slice";
-import { toast } from "react-toastify";
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../../feature/reducers/Cart/cart.slice';
+import { toast } from 'react-toastify';
+import styles from './Main.module.scss';
 
 const Main = () => {
   const dispatch = useDispatch();
   const { item, similarItems, isLoading } = useMain();
   const { title, image, price, id } = item;
-  const [itemSize, setItemSize] = useState("");
-  const [itemColor, setItemColor] = useState("");
+  const [itemSize, setItemSize] = useState('');
+  const [itemColor, setItemColor] = useState('');
   const [count, setCount] = useState(1);
 
   const handleChange = (e) => {
@@ -22,9 +22,9 @@ const Main = () => {
   };
 
   const handeSubmit = () => {
-    if (!itemSize || !itemColor) {
-      toast.warn("Выберите цвет и размер!", {
-        position: "top-right",
+    if (!itemSize && !itemColor) {
+      toast.warn('Выберите цвет и размер!', {
+        position: 'top-right',
       });
     } else {
       const data = {
@@ -47,8 +47,8 @@ const Main = () => {
         {isLoading && <Spinner />}
         {Object.keys(item).length > 0 ? (
           <>
-            <Typography variant="title">
-              {item.title ? item.title : "Название товара"}
+            <Typography variant='title'>
+              {item.title ? item.title : 'Название товара'}
             </Typography>
             <MainCard
               item={item}
@@ -65,13 +65,13 @@ const Main = () => {
           <h1>No data</h1>
         )}
         <section className={styles.similar}>
-          <Typography variant="subtitle">Связанные товары</Typography>
+          <Typography variant='subtitle'>Связанные товары</Typography>
           <div className={styles.list}>
             {similarItems.length > 0
               ? similarItems.map((similarItem) => {
                   return <CardItem key={similarItem.id} item={similarItem} />;
                 })
-              : ""}
+              : ''}
           </div>
         </section>
       </div>

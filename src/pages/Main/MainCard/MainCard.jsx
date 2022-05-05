@@ -1,6 +1,6 @@
-import React from "react";
-import styles from "./MainCard.module.scss";
-import { IButton } from "../../../components/ui-kit";
+import React from 'react';
+import styles from './MainCard.module.scss';
+import { IButton } from '../../../components/ui-kit';
 
 const MainCard = ({
   item,
@@ -53,7 +53,7 @@ const MainCard = ({
           </ul>
 
           <div className={styles.action}>
-            <input type="number" value={count} min={1} onChange={onChange} />
+            <input type='number' value={count} min={1} onChange={onChange} />
             <IButton onClick={onSubmit}>Добавить в корзину</IButton>
           </div>
         </div>
