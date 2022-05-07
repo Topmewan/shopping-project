@@ -1,18 +1,18 @@
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { setFilter } from "../../feature/reducers/Filter/filter.slice";
-import { fetchItems } from "../../feature/reducers/Items/items.actions";
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setFilter } from '../../feature/reducers/Filter/filter.slice';
+import { useGetShopItems } from '../../hooks/useGetShopItems';
 
 export const useShopItems = () => {
   const dispatch = useDispatch();
-  const { shopItems, isLoading } = useSelector((state) => state.items);
+  const { shopItems, isLoading } = useGetShopItems();
   const filter = useSelector((state) => state.filter);
 
   const [page, setPage] = useState(1);
-  const [sortBy, setSortBy] = useState("");
+  const [sortBy, setSortBy] = useState('');
 
   const filteredItems = shopItems.filter((item) => {
-    if (!filter || filter === "all") return true;
+    if (!filter || filter === 'all') return true;
     return item.category === filter;
   });
 
@@ -30,10 +30,10 @@ export const useShopItems = () => {
       return paginationItems;
     }
     return [...paginationItems].sort((a, b) => {
-      if (sortBy === "up") {
+      if (sortBy === 'up') {
         return a.price - b.price;
       }
-      if (sortBy === "down") {
+      if (sortBy === 'down') {
         return b.price - a.price;
       }
     });

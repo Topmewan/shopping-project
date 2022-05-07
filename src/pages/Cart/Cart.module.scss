@@ -28,6 +28,21 @@
           display: flex;
           align-items: center;
           gap: 1rem;
+          position: relative;
+
+          .alert {
+            position: absolute;
+            top: 110%;
+            left: 0;
+          }
+
+          .warning {
+            color: red;
+          }
+
+          .good {
+            color: green;
+          }
 
           input[type="text"] {
             align-self: flex-end;

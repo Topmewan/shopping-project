@@ -1,11 +1,11 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import ApiService from '../../../services/ApiServices';
 
 export const fetchItems = createAsyncThunk(
-  "@@items/fetchItems",
+  '@@items/fetchItems',
   async (_, { rejectWithValue }) => {
     try {
-      const res = await axios.get("http://localhost:5000/shopItems");
+      const res = await ApiService.getShopItems();
       return res.data;
     } catch (e) {
       return rejectWithValue(e.message);
@@ -14,10 +14,10 @@ export const fetchItems = createAsyncThunk(
 );
 
 export const fetchItem = createAsyncThunk(
-  "@@items/fetchItem",
+  '@@items/fetchItem',
   async (id, { rejectWithValue }) => {
     try {
-      const res = await axios.get(`http://localhost:5000/shopItems/${id}`);
+      const res = await await ApiService.getShopItem(id);
       return res.data;
     } catch (e) {
       return rejectWithValue(e.message);

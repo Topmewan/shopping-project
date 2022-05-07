@@ -1,13 +1,15 @@
-import React from "react";
-import styles from "./Home.module.scss";
-import New from "./New";
-import Collection from "./Collection";
-import Important from "./Important";
-import Team from "./Team";
-import { useCollection } from "./useCollection";
+import React from 'react';
+import styles from './Home.module.scss';
+import New from './New';
+import Collection from './Collection';
+import Important from './Important';
+import Team from './Team';
+import { useGetShopItems } from '../../hooks/useGetShopItems';
 
 const Home = () => {
-  const { newCollectionItems, isLoading, isError } = useCollection();
+  const { shopItems, isLoading, isError } = useGetShopItems();
+
+  const newCollectionItems = shopItems.slice(0, 3);
 
   return (
     <main className={styles.wrapper}>
