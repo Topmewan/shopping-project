@@ -1,5 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { fetchTickets } from './tickets.actions';
+import { createSlice } from "@reduxjs/toolkit";
+import { fetchTickets } from "./tickets.actions";
 
 const initialState = {
   realTicket: {},
@@ -8,7 +8,7 @@ const initialState = {
 };
 
 const ticketsSlice = createSlice({
-  name: '@@tickets',
+  name: "@@tickets",
   initialState,
   extraReducers: (builder) => {
     builder

@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import {
   removeItemFromCart,
   updateCount,
-} from '../../../../feature/reducers/Cart/cart.slice';
-import { Link } from 'react-router-dom';
-import styles from './RowItem.module.scss';
+} from "../../../../feature/reducers/Cart/cart.slice";
+import { Link } from "react-router-dom";
+import styles from "./RowItem.module.scss";
 
 const RowItem = ({ item }) => {
   const dispatch = useDispatch();
@@ -30,13 +30,13 @@ const RowItem = ({ item }) => {
             className={styles.delete}
           >
             <svg
-              width='14'
-              height='14'
-              viewBox='0 0 14 14'
-              fill='none'
-              xmlns='http://www.w3.org/2000/svg'
+              width="14"
+              height="14"
+              viewBox="0 0 14 14"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <path d='M1 1L13 13M13 1L1 13' stroke='black' />
+              <path d="M1 1L13 13M13 1L1 13" stroke="black" />
             </svg>
           </span>
 
@@ -61,7 +61,7 @@ const RowItem = ({ item }) => {
 
       {/* третья */}
       <td>
-        <input type='number' value={cartCount} onChange={handleChange} />
+        <input type="number" value={cartCount} onChange={handleChange} />
       </td>
 
       {/* четвертая */}

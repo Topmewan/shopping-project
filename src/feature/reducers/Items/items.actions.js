@@ -1,8 +1,8 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
-import ApiService from '../../../services/ApiServices';
+import { createAsyncThunk } from "@reduxjs/toolkit";
+import ApiService from "../../../services/ApiServices";
 
 export const fetchItems = createAsyncThunk(
-  '@@items/fetchItems',
+  "@@items/fetchItems",
   async (_, { rejectWithValue }) => {
     try {
       const res = await ApiService.getShopItems();
@@ -14,7 +14,7 @@ export const fetchItems = createAsyncThunk(
 );
 
 export const fetchItem = createAsyncThunk(
-  '@@items/fetchItem',
+  "@@items/fetchItem",
   async (id, { rejectWithValue }) => {
     try {
       const res = await await ApiService.getShopItem(id);

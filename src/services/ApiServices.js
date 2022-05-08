@@ -1,7 +1,7 @@
-import api from './http';
+import api from "./http";
 
 const getShopItems = () => {
-  return api.get('/shopItems');
+  return api.get("/shopItems");
 };
 
 const getShopItem = (id) => {

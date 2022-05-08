@@ -30,6 +30,10 @@
           gap: 1rem;
           position: relative;
 
+          .input {
+            align-self: flex-end;
+          }
+
           .alert {
             position: absolute;
             top: 110%;
@@ -42,22 +46,6 @@
 
           .good {
             color: green;
-          }
-
-          input[type="text"] {
-            align-self: flex-end;
-            padding-bottom: 23px;
-            border: none;
-            outline: none;
-            border-bottom: 1px solid #000;
-
-            font-style: normal;
-            font-weight: 500;
-            font-size: 17px;
-            line-height: 140%;
-            letter-spacing: 0.02em;
-
-            color: #868686;
           }
         }
       }

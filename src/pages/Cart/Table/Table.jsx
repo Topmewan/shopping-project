@@ -1,5 +1,5 @@
-import RowItem from './RowItem/RowItem';
-import styles from './Table.module.scss';
+import RowItem from "./RowItem/RowItem";
+import styles from "./Table.module.scss";
 
 export const Table = ({ columns, rows }) => {
   return (
