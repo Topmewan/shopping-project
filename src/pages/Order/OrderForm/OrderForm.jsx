@@ -14,20 +14,19 @@ const schema = Yup.object().shape({
 	email: Yup.string()
 		.required('Укажите ваш E-mail')
 		.email('Некоректно указан E-mail,попробуйте снова'),
-	phone: Yup.string().required('Укажите телефон'),
+	phone: Yup.string().required('Укажите ваш phone'),
 });
+
+const normalizePhoneNumber = (val) => {
+	const PATTERN = /\D/g;
+	return val.replace(PATTERN, '');
+};
 
 function OrderForm() {
 	const [isFocused, setIsFocused] = useState({
 		name: false,
 		email: false,
 		phone: false,
-		country: false,
-		city: false,
-		street: false,
-		home: false,
-		apartment: false,
-		comment: false,
 	});
 
 	const {
@@ -43,7 +42,13 @@ function OrderForm() {
 	const watchAllFileds = watch();
 
 	const onSubmit = (data) => {
-		alert(JSON.stringify(data));
+		const normalizePhone = normalizePhoneNumber(data.phone);
+
+		const options = {
+			...data,
+			phone: normalizePhone,
+		};
+		alert(JSON.stringify(options));
 	};
 
 	const handleFocus = (e) => {
@@ -69,7 +74,7 @@ function OrderForm() {
 					name='name'
 					register={register}
 					type='text'
-					error={errors.name && errors.name.message}
+					error={errors.name && errors.name?.message}
 					placeholder='Имя'
 					isFocused={isFocused.name}
 					onBlur={handleBlur}
@@ -79,7 +84,7 @@ function OrderForm() {
 					name='email'
 					register={register}
 					type='text'
-					error={errors.email && errors.email.message}
+					error={errors.email && errors.email?.message}
 					placeholder='E-mail'
 					isFocused={isFocused.email}
 					onBlur={handleBlur}
@@ -89,7 +94,7 @@ function OrderForm() {
 					name='phone'
 					register={register}
 					type='tel'
-					error={errors.phone && errors.phone.message}
+					error={errors.phone && errors.phone?.message}
 					placeholder='Телефон'
 					isFocused={isFocused.phone}
 					onBlur={handleBlur}

@@ -23,11 +23,11 @@ const FormField = ({
 					<input
 						className={`${styles.input} ${isFocused && styles.inputActive}`}
 						name={name}
-						{...register(name)}
+						{...(register ? register(name) : register)}
 						type={type}
 						placeholder={placeholder}
 						onBlur={onBlur}
-						obFocus={onFocus}
+						onFocus={onFocus}
 					/>
 					{error && <div className={styles.errorMessage}>{error}</div>}
 				</>
@@ -41,7 +41,7 @@ const FormField = ({
 						type={type}
 						placeholder={placeholder}
 						onBlur={onBlur}
-						obFocus={onFocus}
+						onFocus={onFocus}
 					/>
 					{error && <div className={styles.errorMessage}>{error}</div>}
 				</>
