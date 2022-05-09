@@ -22,7 +22,7 @@ const Main = () => {
 	};
 
 	const handeSubmit = () => {
-		if (!itemSize && !itemColor) {
+		if (!itemSize || !itemColor) {
 			toast.warn('Выберите цвет и размер!', {
 				position: 'top-right',
 			});

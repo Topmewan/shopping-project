@@ -20,24 +20,12 @@
 			.left {
 				flex: 1;
 				display: flex;
-
-				.form {
-					width: 100%;
-					padding: 20px;
-					display: flex;
-					flex-direction: column;
-					gap: 81px;
-
-					.data {
-						display: flex;
-						flex-direction: column;
-						gap: 35px;
-					}
-				}
 			}
 
 			.right {
 				flex: 1;
+				display: flex;
+				justify-content: flex-end;
 			}
 		}
 	}

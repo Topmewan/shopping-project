@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Typography } from '../../components';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 
 import styles from './Cart.module.scss';
 import { Table } from './Table/Table';
-import { IButton, Input } from '../../ui-kit';
+import { IButton, FormField } from '../../ui-kit';
 import { clearCart } from '../../feature/reducers/Cart/cart.slice';
 import { fetchTickets } from '../../feature/reducers/Tickets/tickets.actions';
+import { useNavigate } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 
 const columns = [
 	{
@@ -29,21 +31,19 @@ const columns = [
 ];
 
 const Cart = () => {
+	const navigate = useNavigate();
 	const dispatch = useDispatch();
 	const { cart, totalAmount } = useSelector((state) => state.cart);
 	const { realTicket, isError } = useSelector((state) => state.tickets);
-	const [ticket, setTicket] = useState('');
+	const { register, handleSubmit } = useForm();
 
-	const handleSumbit = (e) => {
-		e.preventDefault();
-		if (!ticket) {
+	const onSubmit = (data) => {
+		if (!data.ticket) {
 			toast.warn('Введите купон', { position: 'bottom-left', autoClose: 2000 });
 		} else {
-			dispatch(fetchTickets(ticket));
+			dispatch(fetchTickets(data.ticket));
 		}
 	};
-
-	console.log(realTicket);
 
 	const currentAmount =
 		Object.keys(realTicket).length > 0
@@ -59,13 +59,13 @@ const Cart = () => {
 						<Table columns={columns} rows={cart} />
 
 						<div className={styles.extra}>
-							<form className={styles.coupon} onSubmit={handleSumbit}>
-								<Input
+							<form className={styles.coupon} onSubmit={handleSubmit(onSubmit)}>
+								<FormField
 									className={styles.input}
+									name='ticket'
+									register={register}
 									type='text'
 									placeholder='Введите купон'
-									value={ticket}
-									onChange={(e) => setTicket(e.target.value)}
 								/>
 								{isError && (
 									<p className={`${styles.alert} ${styles.warning}`}>
@@ -91,7 +91,9 @@ const Cart = () => {
 							<p>Подытог: ${totalAmount}</p>
 							<div className={styles.action}>
 								<IButton variant='primary'>Итого:$ {currentAmount}</IButton>
-								<IButton variant='secondary'>Оформить заказ</IButton>
+								<IButton variant='secondary' onClick={() => navigate('/order')}>
+									Оформить заказ
+								</IButton>
 							</div>
 						</div>
 					</section>

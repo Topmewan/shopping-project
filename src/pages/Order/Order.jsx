@@ -1,33 +1,14 @@
-import React, { useState } from 'react';
-import styles from './Order.module.scss';
-import { Typography } from '../../components';
-import { Input } from '../../ui-kit';
+import React from 'react';
 
-const initialState = {
-	name: '',
-	email: '',
-	phone: '',
-	country: '',
-	city: '',
-	street: '',
-	home: '',
-	apartment: '',
-	comment: '',
-};
+import { Typography } from '../../components';
+import { useSelector } from 'react-redux';
+import OrderTable from './OrderTable/OrderTable';
+import OrderForm from './OrderForm/OrderForm';
+
+import styles from './Order.module.scss';
 
 const Order = () => {
-	const [values, setValues] = useState(initialState);
-	const {
-		name,
-		email,
-		phone,
-		city,
-		country,
-		street,
-		home,
-		apartment,
-		comment,
-	} = values;
+	const { cart, totalAmount } = useSelector((state) => state.cart);
 
 	return (
 		<div className={styles.order}>
@@ -35,28 +16,14 @@ const Order = () => {
 				<Typography variant='title'>Оформление заказа</Typography>
 				<section className={styles.content}>
 					<div className={styles.left}>
-						<form className={styles.form}>
-							<div className={styles.data}>
-								<Typography>Данные покупателя</Typography>
-								<Input value={name} placeholder='Имя' />
-								<Input value={email} placeholder='E-mail' />
-								<Input value={phone} placeholder='Телефон' />
-							</div>
-							<div className={styles.data}>
-								<Typography>Адресс получателя</Typography>
-								<Input value={country} placeholder='Страна' />
-								<Input value={city} placeholder='Город' />
-								<Input value={street} placeholder='Улица' />
-								<Input value={home} placeholder='Дом' />
-								<Input value={apartment} placeholder='Квартира' />
-							</div>
-							<div className={styles.data}>
-								<Typography>Комментарий</Typography>
-								<Input value={comment} placeholder='Комментарий' />
-							</div>
-						</form>
+						<OrderForm />
 					</div>
-					<div className={styles.right}></div>
+					<div className={styles.right}>
+						<div className={styles.own}>
+							<Typography>Ваш заказ</Typography>
+							<OrderTable rows={cart} amount={totalAmount} />
+						</div>
+					</div>
 				</section>
 			</div>
 		</div>

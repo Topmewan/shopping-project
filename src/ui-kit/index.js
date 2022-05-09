@@ -1,6 +1,6 @@
-import IButton from "./IButton";
-import Spinner from "./Spinner";
-import Select from "./Select";
-import Input from "./Input";
+import IButton from './IButton';
+import Spinner from './Spinner';
+import Select from './Select';
+import FormField from './FormField';
 
-export { IButton, Spinner, Select, Input };
+export { IButton, Spinner, Select, FormField };
