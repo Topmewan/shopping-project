@@ -53,9 +53,7 @@ const Navbar = () => {
 
 					<div className={styles.service}>
 						<div className={styles.number}>
-							<button>
-								<img src={phone} alt='phone' />
-							</button>
+							<img src={phone} alt='phone' />
 							<a href='tel:8-999-888-777'>8-999-888-777</a>
 						</div>
 

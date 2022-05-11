@@ -1,13 +1,16 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Home from '../../pages/Home';
-import Shop from '../../pages/Shop';
-import About from '../../pages/About';
-import Contacts from '../../pages/Contacts';
-import Cart from '../../pages/Cart';
-import NotFound from '../../pages/NotFound';
-import Main from '../../pages/Main';
-import Order from '../../pages/Order';
+import {
+	Home,
+	Shop,
+	Main,
+	About,
+	Contacts,
+	Cart,
+	Order,
+	NotFound,
+	SignUp,
+} from '../../pages';
 
 const AppRoutes = () => {
 	return (
@@ -19,6 +22,7 @@ const AppRoutes = () => {
 			<Route path='/contacts' element={<Contacts />} />
 			<Route path='/cart' element={<Cart />} />
 			<Route path='/order' element={<Order />} />
+			<Route path='/signup' element={<SignUp />} />
 			<Route path='*' element={<NotFound />} />
 		</Routes>
 	);
