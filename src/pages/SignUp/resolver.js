@@ -9,8 +9,6 @@ export const schema = Yup.object().shape({
 		.email('Некоректно указан E-mail,попробуйте снова'),
 	password: Yup.string()
 		.required('Укажите пароль')
-		.min(8, 'Должно быть не менее 8 символов'),
-	passwordConfirm: Yup.string()
-		.required('Подтвердите пароль')
-		.min(8, 'Должно быть не менее 8 символов'),
+		.min(6, 'Должно быть не менее 8 символов'),
+	passwordConfirm: Yup.string().required('Подтвердите пароль'),
 });

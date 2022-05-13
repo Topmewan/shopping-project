@@ -1,43 +1,29 @@
 import React, { useState } from 'react';
 import { FormField, IButton } from './../../ui-kit';
-import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
+
 import { schema } from './resolver';
 import styles from './SignUp.module.scss';
+import { useDispatch, useSelector } from 'react-redux';
+import { registration } from '../../feature/reducers/Auth/auth.actions';
+import { useNavigate } from 'react-router-dom';
+import { FormWrapper } from '../../components';
+import useFormFocus from '../../hooks/useFormFocus';
+
+const initialState = {
+	username: false,
+	email: false,
+	password: false,
+	passwordConfirm: false,
+};
 
 const SignUp = () => {
-	const [isFocused, setIsFocused] = useState({
-		username: false,
-		email: false,
-		password: false,
-		passwordConfirm: false,
-	});
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
 
-	const {
-		register,
-		watch,
-		handleSubmit,
-		formState: { errors },
-	} = useForm({ resolver: yupResolver(schema) });
-
-	const watchAllFileds = watch();
-
+	const { isError } = useSelector((state) => state.auth);
 	const [isPasswordMatch, setIsPasswordMatch] = useState(true);
-
-	const handleFocus = (e) => {
-		const { name } = e.target;
-		setIsFocused({ ...isFocused, [name]: true });
-	};
-
-	const handleBlur = (e) => {
-		const { name } = e.target;
-
-		if (watchAllFileds[name] !== '') {
-			setIsFocused({ ...isFocused, [name]: true });
-		} else {
-			setIsFocused({ ...isFocused, [name]: false });
-		}
-	};
+	const { register, handleBlur, handleFocus, handleSubmit, errors, isFocused } =
+		useFormFocus(initialState, schema);
 
 	const errorPasswordMessage = (message) => {
 		if (message) {
@@ -48,12 +34,26 @@ const SignUp = () => {
 		}
 	};
 
-	const onSubmit = (data) => {
-		console.log(data);
+	const onSubmit = async (data) => {
+		let { username, email, password, passwordConfirm } = data;
+		if (password === passwordConfirm) {
+			setIsPasswordMatch(true);
+			const registerData = {
+				username,
+				email,
+				password,
+				orders: [],
+			};
+			dispatch(registration(registerData)).then(() => {
+				navigate('/');
+			});
+		} else {
+			setIsPasswordMatch(false);
+		}
 	};
 
 	return (
-		<section className={styles.signup}>
+		<FormWrapper>
 			<form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
 				<FormField
 					name='username'
@@ -83,7 +83,7 @@ const SignUp = () => {
 					onBlur={handleBlur}
 				/>
 				<FormField
-					name='passwordСonfirm'
+					name='passwordConfirm'
 					register={register}
 					type='password'
 					error={errorPasswordMessage(errors.passwordConfirm?.message)}
@@ -92,10 +92,15 @@ const SignUp = () => {
 					onFocus={handleFocus}
 					onBlur={handleBlur}
 				/>
+				{isError && (
+					<div className={styles.warn}>
+						<span>{isError}</span>
+					</div>
+				)}
 
 				<IButton>Отправить</IButton>
 			</form>
-		</section>
+		</FormWrapper>
 	);
 };
 

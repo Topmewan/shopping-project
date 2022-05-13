@@ -1,118 +1,123 @@
 .header {
-  width: 100%;
+	width: 100%;
+	position: fixed;
+	height: 80px;
+	z-index: 10;
+	background-color: #fff;
 
-  .container {
-    max-width: 1110px;
-    margin: 0 auto;
-    padding: 0 15px;
+	.container {
+		height: 100%;
+		max-width: 1110px;
+		margin: 0 auto;
+		padding: 0 15px;
 
-    .content {
-      height: 80px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+		.content {
+			height: 100%;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
 
-      .navigate {
-        display: flex;
-        align-items: center;
-        gap: 45px;
+			.navigate {
+				display: flex;
+				align-items: center;
+				gap: 45px;
 
-        @media screen and (max-width: 922px) {
-          display: none;
-        }
+				@media screen and (max-width: 922px) {
+					display: none;
+				}
 
-        a {
-          font-weight: 400;
-          font-size: 15px;
-          line-height: 140%;
-          letter-spacing: 0.02em;
-          color: #000000;
+				a {
+					font-weight: 400;
+					font-size: 15px;
+					line-height: 140%;
+					letter-spacing: 0.02em;
+					color: #000000;
 
-          &:hover,
-          &.active {
-            color: #6e9c9f;
-          }
-        }
-      }
+					&:hover,
+					&.active {
+						color: #6e9c9f;
+					}
+				}
+			}
 
-      .service {
-        display: flex;
-        align-items: center;
-        gap: 67px;
+			.service {
+				display: flex;
+				align-items: center;
+				gap: 67px;
 
-        .number {
-          display: flex;
-          align-items: center;
-          gap: 10px;
+				.number {
+					display: flex;
+					align-items: center;
+					gap: 10px;
 
-          > {
-            button {
-              position: relative;
-              border: none;
-              outline: none;
-              width: 27px;
-              height: 27px;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              background-color: transparent;
-              transition: all 0.3s ease;
-              cursor: pointer;
+					> {
+						button {
+							position: relative;
+							border: none;
+							outline: none;
+							width: 27px;
+							height: 27px;
+							display: flex;
+							justify-content: center;
+							align-items: center;
+							background-color: transparent;
+							transition: all 0.3s ease;
+							cursor: pointer;
 
-              &:hover {
-                background: #6e9c9f;
-              }
-            }
+							&:hover {
+								background: #6e9c9f;
+							}
+						}
 
-            a {
-              font-weight: 400;
-              font-size: 15px;
-              line-height: 140%;
-              letter-spacing: 0.02em;
-              color: #000000;
-            }
-          }
+						a {
+							font-weight: 400;
+							font-size: 15px;
+							line-height: 140%;
+							letter-spacing: 0.02em;
+							color: #000000;
+						}
+					}
 
-          @media screen and (max-width: 600px) {
-            display: none;
-          }
-        }
+					@media screen and (max-width: 600px) {
+						display: none;
+					}
+				}
 
-        .cart {
-          width: 24px;
-          height: 24px;
-          position: relative;
+				.cart {
+					width: 24px;
+					height: 24px;
+					position: relative;
 
-          a {
-            display: block;
+					a {
+						display: block;
 
-            img {
-              max-width: 100%;
-              object-fit: cover;
-              object-position: center center;
-            }
-          }
+						img {
+							max-width: 100%;
+							object-fit: cover;
+							object-position: center center;
+						}
+					}
 
-          > {
-            span {
-              position: absolute;
-              left: 90%;
-              bottom: 100%;
+					> {
+						span {
+							position: absolute;
+							left: 90%;
+							bottom: 100%;
 
-              display: inline-flex;
-              width: 15px;
-              height: 15px;
-              border-radius: 100%;
-              background: #998e78;
-              color: #fff;
-              font-weight: 400;
-              font-size: 9px;
-              justify-content: center;
-              align-items: center;
-            }
-          }
-        }
-      }
-    }
-  }
+							display: inline-flex;
+							width: 15px;
+							height: 15px;
+							border-radius: 100%;
+							background: #998e78;
+							color: #fff;
+							font-weight: 400;
+							font-size: 9px;
+							justify-content: center;
+							align-items: center;
+						}
+					}
+				}
+			}
+		}
+	}
 }

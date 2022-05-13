@@ -2,7 +2,7 @@ import { nanoid } from '@reduxjs/toolkit';
 import React from 'react';
 import styles from './OrderTable.module.scss';
 
-const OrderTable = ({ rows, amount }) => {
+const OrderTable = ({ rows, amount, ticket }) => {
 	return (
 		<table className={styles.order}>
 			<thead>
@@ -33,6 +33,10 @@ const OrderTable = ({ rows, amount }) => {
 				))}
 			</tbody>
 			<tfoot>
+				<tr>
+					<td>Скидка</td>
+					<td>{ticket ? `${ticket.count} %` : 'Не применена'}</td>
+				</tr>
 				<tr>
 					<td>Итого</td>
 					<td>${amount}</td>

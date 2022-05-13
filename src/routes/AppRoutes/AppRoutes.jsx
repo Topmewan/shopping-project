@@ -4,12 +4,12 @@ import {
 	Home,
 	Shop,
 	Main,
-	About,
-	Contacts,
 	Cart,
 	Order,
 	NotFound,
 	SignUp,
+	Login,
+	Finish,
 } from '../../pages';
 
 const AppRoutes = () => {
@@ -18,11 +18,11 @@ const AppRoutes = () => {
 			<Route path='/' element={<Home />} />
 			<Route path='/shop' element={<Shop />} />
 			<Route path='/products/:id' element={<Main />} />
-			<Route path='/about' element={<About />} />
-			<Route path='/contacts' element={<Contacts />} />
 			<Route path='/cart' element={<Cart />} />
 			<Route path='/order' element={<Order />} />
+			<Route path='/checkout' element={<Finish />} />
 			<Route path='/signup' element={<SignUp />} />
+			<Route path='/login' element={<Login />} />
 			<Route path='*' element={<NotFound />} />
 		</Routes>
 	);

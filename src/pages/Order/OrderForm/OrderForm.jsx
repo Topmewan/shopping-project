@@ -1,58 +1,67 @@
-import React, { useState } from 'react';
 import { Typography } from '../../../components';
 import { FormField, IButton } from '../../../ui-kit';
-import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
+
 import { normalizePhoneNumber } from '../../../utils/data/form-helpers';
 import { schema } from './resolver';
 
 import styles from './OrderForm.module.scss';
+import useFormFocus from '../../../hooks/useFormFocus';
+import ApiService from '../../../services/ApiServices';
+import { useNavigate } from 'react-router-dom';
+import AuthService from '../../../services/AuthService';
+import { useDispatch } from 'react-redux';
+import { clearCart } from '../../../feature/reducers/Cart/cart.slice';
+import { getUser } from '../../../feature/reducers/Auth/auth.actions';
+import { nanoid } from '@reduxjs/toolkit';
 
-function OrderForm() {
-	const [isFocused, setIsFocused] = useState({
-		name: false,
-		email: false,
-		phone: false,
-		country: false,
-		city: false,
-		street: false,
-		home: false,
-		apartment: false,
-	});
+const initialState = {
+	name: false,
+	email: false,
+	phone: false,
+	country: false,
+	city: false,
+	street: false,
+	home: false,
+	apartment: false,
+};
 
-	const {
-		register,
-		watch,
-		handleSubmit,
-		formState: { errors },
-	} = useForm({
-		resolver: yupResolver(schema),
-	});
+function OrderForm({ cart, amount, user }) {
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
+	const { register, handleBlur, handleFocus, handleSubmit, isFocused, errors } =
+		useFormFocus(initialState, schema);
 
-	const watchAllFileds = watch();
-
-	const onSubmit = (data) => {
+	const onSubmit = async (data) => {
 		const normalizePhone = normalizePhoneNumber(data.phone);
 
-		const options = {
+		const order = {
 			...data,
 			phone: normalizePhone,
+			clothes: cart,
+			totalAmount: amount,
+			orderBy: user?.email,
 		};
-		alert(JSON.stringify(options));
-	};
 
-	const handleFocus = (e) => {
-		const { name } = e.target;
-		setIsFocused({ ...isFocused, [name]: true });
-	};
+		const userOrder = {
+			orders: [
+				...user.orders,
+				{
+					clothes: cart,
+					totalAmount: amount,
+					createdAt: new Date(),
+					id: nanoid(),
+				},
+			],
+		};
 
-	const handleBlur = (e) => {
-		const { name } = e.target;
-
-		if (watchAllFileds[name] !== '') {
-			setIsFocused({ ...isFocused, [name]: true });
-		} else {
-			setIsFocused({ ...isFocused, [name]: false });
+		try {
+			await ApiService.addOrders(order);
+			await AuthService.addUserOrders(user.id, userOrder);
+			dispatch(getUser(user.id));
+			dispatch(clearCart());
+			navigate('/checkout');
+		} catch (error) {
+			console.log(error.message);
 		}
 	};
 

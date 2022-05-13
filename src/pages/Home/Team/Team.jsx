@@ -24,8 +24,8 @@ const Team = () => {
 							Womazing ищет эти мелочи и создает прекрасные вещи, которые
 							выгодно подчеркивают достоинства каждой девушки.
 						</p>
-						<Link to={'/about'}>
-							<IButton variant='more'>Подробнее о бренде</IButton>
+						<Link to={'/shop'}>
+							<IButton variant='more'>Перейти в магазин</IButton>
 						</Link>
 					</div>
 				</div>

@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
 import { Typography } from '../../components';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 
-import styles from './Cart.module.scss';
 import { Table } from './Table/Table';
 import { IButton, FormField } from '../../ui-kit';
 import { clearCart } from '../../feature/reducers/Cart/cart.slice';
 import { fetchTickets } from '../../feature/reducers/Tickets/tickets.actions';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import { getAmount } from '../../utils/data/ticket';
+import styles from './Cart.module.scss';
 
 const columns = [
 	{
@@ -44,11 +44,7 @@ const Cart = () => {
 			dispatch(fetchTickets(data.ticket));
 		}
 	};
-
-	const currentAmount =
-		Object.keys(realTicket).length > 0
-			? totalAmount - (totalAmount * realTicket?.size) / 100
-			: totalAmount;
+	const currentAmount = getAmount(realTicket, totalAmount);
 
 	return (
 		<div className={styles.cart}>
@@ -72,7 +68,7 @@ const Cart = () => {
 										{isError}
 									</p>
 								)}
-								{Object.keys(realTicket).length > 0 && (
+								{realTicket && (
 									<p className={`${styles.alert} ${styles.good}`}>
 										Применена скидка {realTicket.size}%
 									</p>

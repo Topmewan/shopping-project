@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { fetchTickets } from './tickets.actions';
 
 const initialState = {
-	realTicket: {},
+	realTicket: null,
 	isError: null,
 	isLoading: false,
 };

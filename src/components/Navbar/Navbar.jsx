@@ -1,16 +1,19 @@
 import React, { useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { IButton } from '../../ui-kit';
 import logo from '../../assets/navbar/Лого.svg';
 import cartIcon from '../../assets/navbar/shopping-bags 1.svg';
 import phone from '../../assets/navbar/telephone 1.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import { getTotal } from '../../feature/reducers/Cart/cart.slice';
+import { logOut } from '../../feature/reducers/Auth/auth.slice';
 
 import styles from './Navbar.module.scss';
 
 const Navbar = () => {
 	const dispatch = useDispatch();
 	const { totalQuantity, cart } = useSelector((state) => state.cart);
+	const { user } = useSelector((state) => state.auth);
 
 	useEffect(() => {
 		dispatch(getTotal());
@@ -37,18 +40,6 @@ const Navbar = () => {
 						>
 							Магазин
 						</NavLink>
-						<NavLink
-							to='/about'
-							className={({ isActive }) => (isActive ? styles.active : '')}
-						>
-							О бренде
-						</NavLink>
-						<NavLink
-							to='/contacts'
-							className={({ isActive }) => (isActive ? styles.active : '')}
-						>
-							Контакты
-						</NavLink>
 					</nav>
 
 					<div className={styles.service}>
@@ -64,6 +55,20 @@ const Navbar = () => {
 							<span>{totalQuantity}</span>
 						</div>
 					</div>
+					{user ? (
+						<IButton variant='more' onClick={() => dispatch(logOut())}>
+							Выйти
+						</IButton>
+					) : (
+						<>
+							<Link to='/signup'>
+								<IButton variant='more'>Регистрация</IButton>
+							</Link>
+							<Link to='/login'>
+								<IButton variant='more'>Войти</IButton>
+							</Link>
+						</>
+					)}
 				</div>
 			</div>
 		</div>

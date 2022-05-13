@@ -142,5 +142,13 @@
 		}
 	],
 	"orders": [],
-	"users": []
+	"users": [
+		{
+			"email": "o@mail.ru",
+			"password": "$2a$10$SpD0a07uU0klACOmg/O8OelFsxOBRrD64PKHkmeMRVrK9n4qWqkGG",
+			"username": "One",
+			"orders": [],
+			"id": 1
+		}
+	]
 }

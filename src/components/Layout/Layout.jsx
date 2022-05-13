@@ -1,10 +1,10 @@
-import React from 'react';
-import styles from './Layout.module.scss';
 import Navbar from '../Navbar';
 import Footer from '../Footer';
 import { AppRoutes } from '../../routes';
 import { ToastContainer } from 'react-toastify';
 import { useLocation } from 'react-router-dom';
+
+import styles from './Layout.module.scss';
 
 const Layout = () => {
 	const { pathname } = useLocation();
@@ -14,7 +14,7 @@ const Layout = () => {
 			<ToastContainer />
 			<Navbar />
 			<AppRoutes />
-			{pathname !== '/signup' ? <Footer /> : ''}
+			{pathname !== '/signup' && pathname !== '/login' ? <Footer /> : ''}
 		</div>
 	);
 };
