@@ -13,6 +13,10 @@ import { useDispatch } from 'react-redux';
 import { clearCart } from '../../../feature/reducers/Cart/cart.slice';
 import { getUser } from '../../../feature/reducers/Auth/auth.actions';
 import { nanoid } from '@reduxjs/toolkit';
+import {
+	deleteTicket,
+	updateTicketCount,
+} from '../../../feature/reducers/Tickets/tickets.actions';
 
 const initialState = {
 	name: false,
@@ -25,11 +29,29 @@ const initialState = {
 	apartment: false,
 };
 
-function OrderForm({ cart, amount, user }) {
+function OrderForm({ cart, amount, user, ticket }) {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 	const { register, handleBlur, handleFocus, handleSubmit, isFocused, errors } =
 		useFormFocus(initialState, schema);
+
+	const ticketWay = async (ticket) => {
+		if (ticket) {
+			if (ticket.count > 1) {
+				dispatch(
+					updateTicketCount({
+						id: ticket.id,
+						data: { ...ticket, count: ticket.count - 1 },
+					})
+				);
+			}
+			if (ticket.count === 1) {
+				dispatch(deleteTicket(ticket.id));
+			}
+		} else {
+			return;
+		}
+	};
 
 	const onSubmit = async (data) => {
 		const normalizePhone = normalizePhoneNumber(data.phone);
@@ -59,6 +81,7 @@ function OrderForm({ cart, amount, user }) {
 			await AuthService.addUserOrders(user.id, userOrder);
 			dispatch(getUser(user.id));
 			dispatch(clearCart());
+			ticketWay(ticket);
 			navigate('/checkout');
 		} catch (error) {
 			console.log(error.message);

@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { registration, login, getUser, addOrders } from './auth.actions';
+import { registration, login, getUser } from './auth.actions';
 
 const initialState = {
 	user: JSON.parse(localStorage.getItem('user')) || null,

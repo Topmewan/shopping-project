@@ -1,154 +1,413 @@
 {
-	"shopItems": [
-		{
-			"id": 1,
-			"image": "https://i.ibb.co/JsmZnyY/one.png",
-			"title": "Футболка USA",
-			"price": 1,
-			"category": "tshirts",
-			"sizes": ["s", "m", "l", "xl"],
-			"colors": ["brown", "gray", "red", "yellow"]
-		},
-		{
-			"id": 2,
-			"image": "https://i.ibb.co/FqGRxWN/two.png",
-			"title": "Купальник Glow",
-			"price": 2,
-			"category": "swimwear",
-			"sizes": ["s", "m", "l", "xl"],
-			"colors": ["brown", "gray", "red", "yellow"]
-		},
-		{
-			"id": 3,
-			"image": "https://i.ibb.co/JsmZnyY/one.png",
-			"title": "Свитшот Sweet Shot",
-			"price": 3,
-			"category": "sweatshirts",
-			"sizes": ["s", "m", "l", "xl"],
-			"colors": ["brown", "gray", "red", "yellow"]
-		},
-		{
-			"id": 4,
-			"image": "https://i.ibb.co/FqGRxWN/two.png",
-			"title": "Пальто USA",
-			"price": 4,
-			"category": "coats",
-			"sizes": ["s", "m", "l", "xl"],
-			"colors": ["brown", "gray", "red", "yellow"]
-		},
-		{
-			"id": 5,
-			"image": "https://i.ibb.co/JsmZnyY/one.png",
-			"title": "Футболка USA",
-			"price": 5,
-			"category": "tshirts",
-			"sizes": ["s", "m", "l", "xl"],
-			"colors": ["brown", "gray", "red", "yellow"]
-		},
-		{
-			"id": 6,
-			"image": "https://i.ibb.co/FqGRxWN/two.png",
-			"title": "Футболка USA",
-			"price": 6,
-			"category": "tshirts",
-			"sizes": ["s", "m", "l", "xl"],
-			"colors": ["brown", "gray", "red", "yellow"]
-		},
-		{
-			"id": 7,
-			"image": "https://i.ibb.co/JsmZnyY/one.png",
-			"title": "Купальник USA",
-			"price": 7,
-			"category": "swimwear",
-			"sizes": ["s", "m", "l", "xl"],
-			"colors": ["brown", "gray", "red", "yellow"]
-		},
-		{
-			"id": 8,
-			"image": "https://i.ibb.co/FqGRxWN/two.png",
-			"title": "Купальник USA",
-			"price": 8,
-			"category": "swimwear",
-			"sizes": ["s", "m", "l", "xl"],
-			"colors": ["brown", "gray", "red", "yellow"]
-		},
-		{
-			"id": 9,
-			"image": "https://i.ibb.co/JsmZnyY/one.png",
-			"title": "Купальник USA",
-			"price": 9,
-			"category": "swimwear",
-			"sizes": ["s", "m", "l", "xl"],
-			"colors": ["brown", "gray", "red", "yellow"]
-		},
-		{
-			"id": 10,
-			"image": "https://i.ibb.co/FqGRxWN/two.png",
-			"title": "Свитшот USA",
-			"price": 10,
-			"category": "sweatshirts",
-			"sizes": ["s", "m", "l", "xl"],
-			"colors": ["brown", "gray", "red", "yellow"]
-		},
-		{
-			"id": 11,
-			"image": "https://i.ibb.co/JsmZnyY/one.png",
-			"title": "Свитшот USA",
-			"price": 11,
-			"category": "sweatshirts",
-			"sizes": ["s", "m", "l", "xl"],
-			"colors": ["brown", "gray", "red", "yellow"]
-		},
-		{
-			"id": 12,
-			"image": "https://i.ibb.co/FqGRxWN/two.png",
-			"title": "Пальто USA",
-			"price": 12,
-			"category": "coats",
-			"sizes": ["s", "m", "l", "xl"],
-			"colors": ["brown", "gray", "red", "yellow"]
-		},
-		{
-			"id": 13,
-			"image": "https://i.ibb.co/JsmZnyY/one.png",
-			"title": "Пальто USA",
-			"price": 13,
-			"category": "coats",
-			"sizes": ["s", "m", "l", "xl"],
-			"colors": ["brown", "gray", "red", "yellow"]
-		},
-		{
-			"id": 14,
-			"image": "https://i.ibb.co/FqGRxWN/two.png",
-			"title": "Пальто USA",
-			"price": 14,
-			"category": "coats",
-			"sizes": ["s", "m", "l", "xl"],
-			"colors": ["brown", "gray", "red", "yellow"]
-		}
-	],
-	"tickets": [
-		{
-			"id": 1,
-			"title": "FIRST",
-			"size": 20,
-			"count": 5
-		},
-		{
-			"id": 2,
-			"title": "SECOND",
-			"size": 10,
-			"count": 5
-		}
-	],
-	"orders": [],
-	"users": [
-		{
-			"email": "o@mail.ru",
-			"password": "$2a$10$SpD0a07uU0klACOmg/O8OelFsxOBRrD64PKHkmeMRVrK9n4qWqkGG",
-			"username": "One",
-			"orders": [],
-			"id": 1
-		}
-	]
+  "shopItems": [
+    {
+      "id": 1,
+      "image": "https://i.ibb.co/JsmZnyY/one.png",
+      "title": "Футболка USA",
+      "price": 1,
+      "category": "tshirts",
+      "sizes": [
+        "s",
+        "m",
+        "l",
+        "xl"
+      ],
+      "colors": [
+        "brown",
+        "gray",
+        "red",
+        "yellow"
+      ]
+    },
+    {
+      "id": 2,
+      "image": "https://i.ibb.co/FqGRxWN/two.png",
+      "title": "Купальник Glow",
+      "price": 2,
+      "category": "swimwear",
+      "sizes": [
+        "s",
+        "m",
+        "l",
+        "xl"
+      ],
+      "colors": [
+        "brown",
+        "gray",
+        "red",
+        "yellow"
+      ]
+    },
+    {
+      "id": 3,
+      "image": "https://i.ibb.co/JsmZnyY/one.png",
+      "title": "Свитшот Sweet Shot",
+      "price": 3,
+      "category": "sweatshirts",
+      "sizes": [
+        "s",
+        "m",
+        "l",
+        "xl"
+      ],
+      "colors": [
+        "brown",
+        "gray",
+        "red",
+        "yellow"
+      ]
+    },
+    {
+      "id": 4,
+      "image": "https://i.ibb.co/FqGRxWN/two.png",
+      "title": "Пальто USA",
+      "price": 4,
+      "category": "coats",
+      "sizes": [
+        "s",
+        "m",
+        "l",
+        "xl"
+      ],
+      "colors": [
+        "brown",
+        "gray",
+        "red",
+        "yellow"
+      ]
+    },
+    {
+      "id": 5,
+      "image": "https://i.ibb.co/JsmZnyY/one.png",
+      "title": "Футболка USA",
+      "price": 5,
+      "category": "tshirts",
+      "sizes": [
+        "s",
+        "m",
+        "l",
+        "xl"
+      ],
+      "colors": [
+        "brown",
+        "gray",
+        "red",
+        "yellow"
+      ]
+    },
+    {
+      "id": 6,
+      "image": "https://i.ibb.co/FqGRxWN/two.png",
+      "title": "Футболка USA",
+      "price": 6,
+      "category": "tshirts",
+      "sizes": [
+        "s",
+        "m",
+        "l",
+        "xl"
+      ],
+      "colors": [
+        "brown",
+        "gray",
+        "red",
+        "yellow"
+      ]
+    },
+    {
+      "id": 7,
+      "image": "https://i.ibb.co/JsmZnyY/one.png",
+      "title": "Купальник USA",
+      "price": 7,
+      "category": "swimwear",
+      "sizes": [
+        "s",
+        "m",
+        "l",
+        "xl"
+      ],
+      "colors": [
+        "brown",
+        "gray",
+        "red",
+        "yellow"
+      ]
+    },
+    {
+      "id": 8,
+      "image": "https://i.ibb.co/FqGRxWN/two.png",
+      "title": "Купальник USA",
+      "price": 8,
+      "category": "swimwear",
+      "sizes": [
+        "s",
+        "m",
+        "l",
+        "xl"
+      ],
+      "colors": [
+        "brown",
+        "gray",
+        "red",
+        "yellow"
+      ]
+    },
+    {
+      "id": 9,
+      "image": "https://i.ibb.co/JsmZnyY/one.png",
+      "title": "Купальник USA",
+      "price": 9,
+      "category": "swimwear",
+      "sizes": [
+        "s",
+        "m",
+        "l",
+        "xl"
+      ],
+      "colors": [
+        "brown",
+        "gray",
+        "red",
+        "yellow"
+      ]
+    },
+    {
+      "id": 10,
+      "image": "https://i.ibb.co/FqGRxWN/two.png",
+      "title": "Свитшот USA",
+      "price": 10,
+      "category": "sweatshirts",
+      "sizes": [
+        "s",
+        "m",
+        "l",
+        "xl"
+      ],
+      "colors": [
+        "brown",
+        "gray",
+        "red",
+        "yellow"
+      ]
+    },
+    {
+      "id": 11,
+      "image": "https://i.ibb.co/JsmZnyY/one.png",
+      "title": "Свитшот USA",
+      "price": 11,
+      "category": "sweatshirts",
+      "sizes": [
+        "s",
+        "m",
+        "l",
+        "xl"
+      ],
+      "colors": [
+        "brown",
+        "gray",
+        "red",
+        "yellow"
+      ]
+    },
+    {
+      "id": 12,
+      "image": "https://i.ibb.co/FqGRxWN/two.png",
+      "title": "Пальто USA",
+      "price": 12,
+      "category": "coats",
+      "sizes": [
+        "s",
+        "m",
+        "l",
+        "xl"
+      ],
+      "colors": [
+        "brown",
+        "gray",
+        "red",
+        "yellow"
+      ]
+    },
+    {
+      "id": 13,
+      "image": "https://i.ibb.co/JsmZnyY/one.png",
+      "title": "Пальто USA",
+      "price": 13,
+      "category": "coats",
+      "sizes": [
+        "s",
+        "m",
+        "l",
+        "xl"
+      ],
+      "colors": [
+        "brown",
+        "gray",
+        "red",
+        "yellow"
+      ]
+    },
+    {
+      "id": 14,
+      "image": "https://i.ibb.co/FqGRxWN/two.png",
+      "title": "Пальто USA",
+      "price": 14,
+      "category": "coats",
+      "sizes": [
+        "s",
+        "m",
+        "l",
+        "xl"
+      ],
+      "colors": [
+        "brown",
+        "gray",
+        "red",
+        "yellow"
+      ]
+    }
+  ],
+  "tickets": [
+    {
+      "id": 2,
+      "title": "SECOND",
+      "size": 10,
+      "count": 1
+    }
+  ],
+  "orders": [
+    {
+      "name": "DENIS GAREEV",
+      "email": "anon8733@gmail.com",
+      "phone": "6564645646464",
+      "country": "Россия",
+      "city": "СПБ",
+      "street": "gfd",
+      "home": "54",
+      "apartment": "4",
+      "clothes": [
+        {
+          "id": 1,
+          "image": "https://i.ibb.co/JsmZnyY/one.png",
+          "title": "Футболка USA",
+          "price": 1,
+          "count": 1,
+          "color": "brown",
+          "size": "s"
+        }
+      ],
+      "totalAmount": 1,
+      "orderBy": "o@mail.ru",
+      "createdAt": "2022-05-13T14:22:17.540Z",
+      "id": 1
+    },
+    {
+      "name": "DENIS GAREEV",
+      "email": "anon8733@gmail.com",
+      "phone": "76567575757",
+      "country": "Россия",
+      "city": "СПБ",
+      "street": "fsfsd",
+      "home": "3",
+      "apartment": "3",
+      "clothes": [
+        {
+          "id": 2,
+          "image": "https://i.ibb.co/FqGRxWN/two.png",
+          "title": "Купальник Glow",
+          "price": 2,
+          "count": 1,
+          "color": "brown",
+          "size": "s"
+        }
+      ],
+      "totalAmount": 2,
+      "orderBy": "o@mail.ru",
+      "createdAt": "2022-05-13T14:28:36.920Z",
+      "id": 2
+    },
+    {
+      "name": "DENIS GAREEV",
+      "email": "anon8733@gmail.com",
+      "phone": "6747474",
+      "country": "Россия",
+      "city": "СПБ",
+      "street": "fs",
+      "home": "fs",
+      "apartment": "dsf",
+      "clothes": [
+        {
+          "id": 2,
+          "image": "https://i.ibb.co/FqGRxWN/two.png",
+          "title": "Купальник Glow",
+          "price": 2,
+          "count": 1,
+          "color": "brown",
+          "size": "s"
+        }
+      ],
+      "totalAmount": 2,
+      "orderBy": "o@mail.ru",
+      "createdAt": "2022-05-13T14:37:49.523Z",
+      "id": 3
+    }
+  ],
+  "users": [
+    {
+      "email": "o@mail.ru",
+      "password": "$2a$10$SpD0a07uU0klACOmg/O8OelFsxOBRrD64PKHkmeMRVrK9n4qWqkGG",
+      "username": "One",
+      "orders": [
+        {
+          "clothes": [
+            {
+              "id": 1,
+              "image": "https://i.ibb.co/JsmZnyY/one.png",
+              "title": "Футболка USA",
+              "price": 1,
+              "count": 1,
+              "color": "brown",
+              "size": "s"
+            }
+          ],
+          "totalAmount": 1,
+          "createdAt": "2022-05-13T14:22:17.540Z",
+          "id": "CYrS4mD8ugE0LWjm6X1tp"
+        },
+        {
+          "clothes": [
+            {
+              "id": 2,
+              "image": "https://i.ibb.co/FqGRxWN/two.png",
+              "title": "Купальник Glow",
+              "price": 2,
+              "count": 1,
+              "color": "brown",
+              "size": "s"
+            }
+          ],
+          "totalAmount": 2,
+          "createdAt": "2022-05-13T14:28:36.920Z",
+          "id": "zU0HpMnw1kVdjXy54mEBX"
+        },
+        {
+          "clothes": [
+            {
+              "id": 2,
+              "image": "https://i.ibb.co/FqGRxWN/two.png",
+              "title": "Купальник Glow",
+              "price": 2,
+              "count": 1,
+              "color": "brown",
+              "size": "s"
+            }
+          ],
+          "totalAmount": 2,
+          "createdAt": "2022-05-13T14:37:49.523Z",
+          "id": "MG-XvkVqOpuW4FOZi_bSA"
+        }
+      ],
+      "id": 1
+    }
+  ]
 }

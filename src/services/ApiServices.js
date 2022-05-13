@@ -11,6 +11,12 @@ const getShopItem = (id) => {
 const getTickets = (ticket) => {
 	return api.get(`/tickets?title=${ticket}`);
 };
+const updateTicket = (id, data) => {
+	return api.put(`/tickets/${id}`, data);
+};
+const deleteTickets = (id) => {
+	return api.delete(`/tickets/${id}`);
+};
 
 const addOrders = (data) => {
 	return api.post('/orders', { ...data, createdAt: new Date() });
@@ -21,6 +27,8 @@ const ApiService = {
 	getShopItems,
 	getTickets,
 	addOrders,
+	updateTicket,
+	deleteTickets,
 };
 
 export default ApiService;

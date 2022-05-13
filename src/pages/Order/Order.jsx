@@ -20,7 +20,12 @@ const Order = () => {
 				<Typography variant='title'>Оформление заказа</Typography>
 				<section className={styles.content}>
 					<div className={styles.left}>
-						<OrderForm cart={cart} amount={currentAmount} user={user} />
+						<OrderForm
+							cart={cart}
+							amount={currentAmount}
+							user={user}
+							ticket={realTicket}
+						/>
 					</div>
 
 					<div className={styles.right}>
