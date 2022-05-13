@@ -1,20 +1,20 @@
-import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
 
-import { Layout, ScrollToTop } from '../index';
+import { Layout, ScrollToTop } from "../index";
 
 const App = () => {
-	const { user } = useSelector((state) => state.auth);
+  const { user } = useSelector((state) => state.auth);
 
-	useEffect(() => {
-		localStorage.setItem('user', JSON.stringify(user));
-	}, [user]);
+  useEffect(() => {
+    localStorage.setItem("user", JSON.stringify(user));
+  }, [user]);
 
-	return (
-		<ScrollToTop>
-			<Layout />
-		</ScrollToTop>
-	);
+  return (
+    <ScrollToTop>
+      <Layout />
+    </ScrollToTop>
+  );
 };
 
 export default App;
