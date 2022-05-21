@@ -25,16 +25,15 @@ const Shop = () => {
 		<section className={styles.shop}>
 			<div className={styles.container}>
 				<Typography variant='title'>Магазин</Typography>
-				<IButton>Фильтры</IButton>
 				<Filter getFilter={getFilter} filterVal={filter} />
-				{/* <div className={styles.sort}>
+				<div className={styles.sort}>
 					<IButton variant='primary' onClick={() => setSortBy('up')}>
 						По возрастанию
 					</IButton>
 					<IButton variant='primary' onClick={() => setSortBy('down')}>
 						По убыванию
 					</IButton>
-				</div> */}
+				</div>
 
 				{sortedItems().length > 0 ? (
 					<>
