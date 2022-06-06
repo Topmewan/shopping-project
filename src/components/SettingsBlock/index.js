@@ -1,1 +1,1 @@
-export { default } from './SettingsBlock';
+export { default } from "./SettingsBlock";

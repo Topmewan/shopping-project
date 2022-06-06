@@ -1,34 +1,34 @@
-@import './../styles.scss';
+@import "./../styles.scss";
 
 .main {
-	@include page;
+  @include page;
 
-	.container {
-		@include container;
-		position: relative;
+  .container {
+    @include container;
+    position: relative;
 
-		> {
-			h1 {
-				margin-top: 70px;
-				margin-bottom: 70px;
-			}
-		}
+    > {
+      h1 {
+        margin-top: 70px;
+        margin-bottom: 70px;
+      }
+    }
 
-		.similar {
-			margin-top: 130px;
+    .similar {
+      margin-top: 130px;
 
-			> {
-				h2 {
-					margin-bottom: 70px;
-				}
-			}
+      > {
+        h2 {
+          margin-bottom: 70px;
+        }
+      }
 
-			.list {
-				display: flex;
-				flex-wrap: wrap;
-				justify-content: flex-start;
-				gap: 30px;
-			}
-		}
-	}
+      .list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 30px;
+      }
+    }
+  }
 }
