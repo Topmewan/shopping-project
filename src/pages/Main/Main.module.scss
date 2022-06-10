@@ -1,34 +1,36 @@
-@import "./../styles.scss";
+@import './../styles.scss';
 
 .main {
-  @include page;
+	@include page;
 
-  .container {
-    @include container;
-    position: relative;
+	.container {
+		@include container;
 
-    > {
-      h1 {
-        margin-top: 70px;
-        margin-bottom: 70px;
-      }
-    }
+		.shopItem {
+			width: 100%;
+			margin-top: 70px;
+			min-height: 500px;
+			position: relative;
+		}
 
-    .similar {
-      margin-top: 130px;
+		.similar {
+			margin-top: 130px;
 
-      > {
-        h2 {
-          margin-bottom: 70px;
-        }
-      }
+			> {
+				h2 {
+					margin-bottom: 70px;
+				}
+			}
 
-      .list {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: flex-start;
-        gap: 30px;
-      }
-    }
-  }
+			.list {
+				display: flex;
+				gap: 2rem;
+
+				@media (max-width: 768px) {
+					flex-direction: column;
+					align-items: center;
+				}
+			}
+		}
+	}
 }

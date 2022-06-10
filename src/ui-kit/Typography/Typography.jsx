@@ -1,15 +1,28 @@
-import React from "react";
-import styles from "./Typography.module.scss";
+import React, { forwardRef } from 'react';
+import { motion } from 'framer-motion';
+import styles from './Typography.module.scss';
 
-const Typography = ({ children, variant }) => {
-  if (variant === "title") {
-    return <h1 className={`${styles.typo} ${styles.title}`}>{children}</h1>;
-  }
-  if (variant === "subtitle") {
-    return <h2 className={`${styles.typo} ${styles.subtitle}`}>{children}</h2>;
-  }
+export const Typography = forwardRef(({ children, variant }, ref) => {
+	if (variant === 'title') {
+		return (
+			<h1 ref={ref} className={`${styles.typo} ${styles.title}`}>
+				{children}
+			</h1>
+		);
+	}
+	if (variant === 'subtitle') {
+		return (
+			<h2 ref={ref} className={`${styles.typo} ${styles.subtitle}`}>
+				{children}
+			</h2>
+		);
+	}
 
-  return <h3 className={`${styles.typo}`}>{children}</h3>;
-};
+	return (
+		<h3 ref={ref} className={`${styles.typo}`}>
+			{children}
+		</h3>
+	);
+});
 
-export default Typography;
+export const MTypography = motion(Typography);

@@ -1,32 +1,45 @@
-import { useNavigate } from "react-router-dom";
-import { CardItem } from "../../../components";
-import { IButton, Spinner, Typography } from "../../../ui-kit";
+import { useNavigate } from 'react-router-dom';
+import { CardItem } from '../../../components';
+import { IButton, Typography, ShopItemSkeleton } from '../../../ui-kit';
 
-import styles from "./Collection.module.scss";
+import styles from './Collection.module.scss';
 
 const Collection = ({ newCollectionItems, isLoading, isError }) => {
-  const navigate = useNavigate();
+	const navigate = useNavigate();
 
-  return (
-    <section className={styles.collection}>
-      <div className={styles.container}>
-        <Typography variant="subtitle">Новая колекция</Typography>
-        {isLoading && <Spinner />}
-        <div className={styles.list}>
-          {newCollectionItems.length > 0 ? (
-            newCollectionItems.map((item) => (
-              <CardItem key={item.id} item={item} />
-            ))
-          ) : (
-            <h1>Пока здесь ничего нет</h1>
-          )}
-        </div>
-        <IButton variant="primary" onClick={() => navigate("/shop")}>
-          Открыть магазин
-        </IButton>
-      </div>
-    </section>
-  );
+	const renderData = () => {
+		if (isLoading) {
+			return (
+				<>
+					{[...new Array(3)].map((_, idx) => (
+						<ShopItemSkeleton key={idx} />
+					))}
+				</>
+			);
+		} else if (newCollectionItems.length > 0) {
+			return (
+				<>
+					{newCollectionItems?.map((item) => (
+						<CardItem key={item?.id} item={item} />
+					))}
+				</>
+			);
+		} else {
+			return <h1>Тут пусто</h1>;
+		}
+	};
+
+	return (
+		<section className={styles.collection}>
+			<div className={styles.container}>
+				<Typography variant='subtitle'>Новая колекция</Typography>
+				<div className={styles.list}>{renderData()}</div>
+				<IButton variant='primary' onClick={() => navigate('/shop')}>
+					Открыть магазин
+				</IButton>
+			</div>
+		</section>
+	);
 };
 
 export default Collection;
