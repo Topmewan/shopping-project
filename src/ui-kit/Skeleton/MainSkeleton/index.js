@@ -1,1 +1,1 @@
-export { MainSkeleton as default } from './MainSkeleton';
+export { MainSkeleton as default } from "./MainSkeleton";

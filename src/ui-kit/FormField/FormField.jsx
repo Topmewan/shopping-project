@@ -62,7 +62,7 @@ const FormField = ({
             onFocus={onFocus}
           />
           <div className={styles.icon} onClick={handleShowPassword}>
-            <img src={isShowPassword ? visible : invisible} alt="" />
+            <img src={isShowPassword ? invisible : visible} alt="" />
           </div>
           {error && <div className={styles.errorMessage}>{error}</div>}
         </>

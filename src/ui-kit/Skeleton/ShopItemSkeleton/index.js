@@ -1,1 +1,1 @@
-export { ShopItemSkeleton as default } from './ShopItemSkeleton';
+export { ShopItemSkeleton as default } from "./ShopItemSkeleton";
