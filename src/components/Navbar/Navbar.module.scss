@@ -1,90 +1,90 @@
 .header {
-	width: 100%;
-	position: fixed;
-	height: 80px;
-	z-index: 10;
-	background-color: #fff;
+  width: 100%;
+  position: fixed;
+  height: 80px;
+  z-index: 10;
+  background-color: #fff;
 
-	.container {
-		height: 100%;
-		max-width: 1110px;
-		margin: 0 auto;
-		padding: 0 15px;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
+  .container {
+    height: 100%;
+    max-width: 1110px;
+    margin: 0 auto;
+    padding: 0 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-		.navigate {
-			display: flex;
-			align-items: center;
-			gap: 45px;
+    .navigate {
+      display: flex;
+      align-items: center;
+      gap: 45px;
 
-			@media screen and (max-width: 922px) {
-				display: none;
-			}
+      @media screen and (max-width: 922px) {
+        display: none;
+      }
 
-			a {
-				font-weight: 400;
-				font-size: 15px;
-				line-height: 140%;
-				letter-spacing: 0.02em;
-				color: #000000;
+      a {
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 140%;
+        letter-spacing: 0.02em;
+        color: #000000;
 
-				&:hover,
-				&.active {
-					color: #6e9c9f;
-				}
-			}
-		}
+        &:hover,
+        &.active {
+          color: #6e9c9f;
+        }
+      }
+    }
 
-		.account {
-			height: 100%;
-			display: flex;
-			gap: 30px;
-			align-items: center;
+    .account {
+      height: 100%;
+      display: flex;
+      gap: 30px;
+      align-items: center;
 
-			svg {
-				width: 25px;
-				height: 25px;
-				cursor: pointer;
-				color: #6e9c9f;
-				fill: #6e9c9f;
-			}
+      svg {
+        width: 25px;
+        height: 25px;
+        cursor: pointer;
+        color: #6e9c9f;
+        fill: #6e9c9f;
+      }
 
-			.login {
-				@media (max-width: 420px) {
-					display: none;
-				}
-			}
+      .login {
+        @media (max-width: 420px) {
+          display: none;
+        }
+      }
 
-			> {
-				a {
-					display: flex;
-					align-items: center;
-					justify-content: center;
+      > {
+        a {
+          display: flex;
+          align-items: center;
+          justify-content: center;
 
-					&:nth-of-type(1) {
-						position: relative;
+          &:nth-of-type(1) {
+            position: relative;
 
-						span {
-							position: absolute;
-							left: 90%;
-							bottom: 100%;
+            span {
+              position: absolute;
+              left: 90%;
+              bottom: 100%;
 
-							display: inline-flex;
-							width: 15px;
-							height: 15px;
-							border-radius: 100%;
-							background: #998e78;
-							color: #fff;
-							font-weight: 400;
-							font-size: 9px;
-							justify-content: center;
-							align-items: center;
-						}
-					}
-				}
-			}
-		}
-	}
+              display: inline-flex;
+              width: 15px;
+              height: 15px;
+              border-radius: 100%;
+              background: #998e78;
+              color: #fff;
+              font-weight: 400;
+              font-size: 9px;
+              justify-content: center;
+              align-items: center;
+            }
+          }
+        }
+      }
+    }
+  }
 }

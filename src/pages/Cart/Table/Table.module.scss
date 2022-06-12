@@ -1,38 +1,38 @@
 .table {
-	width: 100%;
-	border-collapse: collapse;
+  width: 100%;
+  border-collapse: collapse;
 
-	td {
-		text-align: center;
-	}
+  td {
+    text-align: center;
+  }
 
-	thead {
-		border-bottom: 1px solid #cccccc;
-		font-style: normal;
-		font-weight: 500;
-		font-size: 20px;
-		line-height: 140%;
-		letter-spacing: 0.02em;
-		color: #000000;
+  thead {
+    border-bottom: 1px solid #cccccc;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 140%;
+    letter-spacing: 0.02em;
+    color: #000000;
 
-		td {
-			padding-bottom: 26px;
-		}
+    td {
+      padding-bottom: 26px;
+    }
 
-		td:first-child {
-			text-align: left;
-			width: 40%;
-		}
-	}
+    td:first-child {
+      text-align: left;
+      width: 40%;
+    }
+  }
 
-	tbody {
-		font-style: normal;
-		font-weight: 500;
-		font-size: 17px;
-		line-height: 140%;
+  tbody {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 140%;
 
-		letter-spacing: 0.02em;
+    letter-spacing: 0.02em;
 
-		color: #000000;
-	}
+    color: #000000;
+  }
 }

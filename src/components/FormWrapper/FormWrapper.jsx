@@ -1,5 +1,3 @@
-import React, { useEffect } from "react";
-
 import styles from "./FormWrapper.module.scss";
 
 const FormWrapper = ({ children }) => {

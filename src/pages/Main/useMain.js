@@ -1,10 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
-import {
-  fetchItem,
-  fetchItems,
-} from "../../feature/reducers/Items/items.actions";
+import { fetchItem } from "../../feature/reducers/Items/items.actions";
 import { useGetShopItems } from "../../hooks/useGetShopItems";
 
 export const useMain = () => {

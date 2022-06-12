@@ -1,5 +1,4 @@
 import React, { forwardRef } from "react";
-import styles from "./InputPhone.module.scss";
 
 const InputPhone = forwardRef(
   ({ name, type, placeholder, onBlur, onFocus, className, ...props }, ref) => {

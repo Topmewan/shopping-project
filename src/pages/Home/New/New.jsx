@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { IButton, Typography, MTypography } from "../../../ui-kit";
+import { IButton, MTypography } from "../../../ui-kit";
 import arrow from "./../../../assets/arrow.svg";
 import { motion } from "framer-motion";
 import styles from "./New.module.scss";
