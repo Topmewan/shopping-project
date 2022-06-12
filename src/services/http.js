@@ -1,6 +1,9 @@
 import axios from 'axios';
 
+const apiKey = process.env.REACT_APP_MOCK_KEY;
+
+console.log(apiKey);
+
 export default axios.create({
-	withCredentials: true,
-	baseURL: 'http://localhost:5000',
+	baseURL: `https://${apiKey}.mockapi.io/api/v1`,
 });

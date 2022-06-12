@@ -1,5 +1,23 @@
-.orders {
-  flex: 1 0 auto;
-  position: relative;
-  top: 80px;
+.info {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	> {
+		h4 {
+			font-weight: 600;
+			font-size: 1.5rem;
+		}
+	}
+
+	.body {
+		display: flex;
+		flex-direction: column;
+
+		> {
+			p {
+				font-size: 1rem;
+				color: #000;
+			}
+		}
+	}
 }
