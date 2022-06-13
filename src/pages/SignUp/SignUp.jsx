@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { UserAuth } from "../../context/AuthContext";
 
-import { useSelector } from "react-redux";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import useFormFocus from "../../hooks/useFormFocus";
 
 import { FormField, IButton } from "./../../ui-kit";
@@ -19,10 +18,8 @@ const initialState = {
 };
 
 const SignUp = () => {
-  const navigate = useNavigate();
-  const { signUp } = UserAuth();
+  const { signUp, error } = UserAuth();
 
-  const { isError } = useSelector((state) => state.auth);
   const [isPasswordMatch, setIsPasswordMatch] = useState(true);
   const { register, handleBlur, handleFocus, handleSubmit, errors, isFocused } =
     useFormFocus(initialState, schema);
@@ -36,33 +33,11 @@ const SignUp = () => {
     }
   };
 
-  // const onSubmit = async (data) => {
-  // 	let { email, password, passwordConfirm } = data;
-  // 	if (password === passwordConfirm) {
-  // 		setIsPasswordMatch(true);
-  // 		const registerData = {
-  // 			email,
-  // 			password,
-  // 			orders: [],
-  // 		};
-  // 		dispatch(registration(registerData)).then(() => {
-  // 			navigate('/');
-  // 		});
-  // 	} else {
-  // 		setIsPasswordMatch(false);
-  // 	}
-  // };
-
   const onSubmit = async (data) => {
     let { email, password, passwordConfirm } = data;
     if (password === passwordConfirm) {
       setIsPasswordMatch(true);
-      try {
-        await signUp(email, password);
-        navigate("/");
-      } catch (e) {
-        console.log(e);
-      }
+      await signUp(email, password);
     } else {
       setIsPasswordMatch(false);
     }
@@ -99,9 +74,10 @@ const SignUp = () => {
           onFocus={handleFocus}
           onBlur={handleBlur}
         />
-        {isError && (
+
+        {error && (
           <div className={styles.warn}>
-            <span>{isError}</span>
+            <span>{error}</span>
           </div>
         )}
 

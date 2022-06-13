@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
-import { IButton } from "../../ui-kit";
+import React, { useEffect, useState } from "react";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { ReactComponent as Logo } from "../../assets/navbar/Лого.svg";
 import { ReactComponent as Cart } from "../../assets/navbar/cart.svg";
 import { ReactComponent as Profile } from "../../assets/navbar/profile.svg";
 import { ReactComponent as Logout } from "../../assets/navbar/logout.svg";
+import { ReactComponent as Menu } from "../../assets/navbar/menu2.svg";
 
 import { useDispatch, useSelector } from "react-redux";
 import { getTotal } from "../../feature/reducers/Cart/cart.slice";
@@ -15,8 +15,10 @@ import styles from "./Navbar.module.scss";
 const Navbar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
   const { totalQuantity, cart } = useSelector((state) => state.cart);
   const { user, logOut } = UserAuth();
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     dispatch(getTotal());
@@ -31,6 +33,14 @@ const Navbar = () => {
     }
   };
 
+  const handleMenu = () => {
+    setIsOpen((prev) => !prev);
+  };
+
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location.pathname]);
+
   return (
     <div className={styles.header}>
       <div className={styles.container}>
@@ -38,7 +48,11 @@ const Navbar = () => {
           <Logo />
         </Link>
 
-        <div className={styles.navigate}>
+        <button onClick={handleMenu} className={styles.menuButton}>
+          <Menu />
+        </button>
+
+        <nav className={`${styles.nav} ${isOpen ? styles.open : ""}`}>
           <NavLink
             to="/"
             className={({ isActive }) => (isActive ? styles.active : "")}
@@ -51,10 +65,8 @@ const Navbar = () => {
           >
             Магазин
           </NavLink>
-        </div>
 
-        <div className={styles.account}>
-          <Link to="/cart">
+          <Link to="/cart" className={styles.cart}>
             <Cart />
             <span>{totalQuantity}</span>
           </Link>
@@ -68,15 +80,21 @@ const Navbar = () => {
             </>
           ) : (
             <>
-              <Link to="/signup">
-                <IButton variant="more">Регистрация</IButton>
-              </Link>
-              <Link to="/login" className={styles.login}>
-                <IButton variant="more">Войти</IButton>
-              </Link>
+              <NavLink
+                to="/signup"
+                className={({ isActive }) => (isActive ? styles.active : "")}
+              >
+                Регистрация
+              </NavLink>
+              <NavLink
+                to="/login"
+                className={({ isActive }) => (isActive ? styles.active : "")}
+              >
+                Войти
+              </NavLink>
             </>
           )}
-        </div>
+        </nav>
       </div>
     </div>
   );

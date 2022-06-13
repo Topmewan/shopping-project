@@ -1,7 +1,5 @@
-import React from "react";
 import { UserAuth } from "../../context/AuthContext";
-import { useSelector } from "react-redux";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import useFormFocus from "../../hooks/useFormFocus";
 
@@ -17,20 +15,13 @@ const initialState = {
 };
 
 const Login = () => {
-  const navigate = useNavigate();
-  const { signIn } = UserAuth();
+  const { signIn, error } = UserAuth();
 
-  const { isError } = useSelector((state) => state.auth);
   const { register, handleBlur, handleFocus, errors, isFocused, handleSubmit } =
     useFormFocus(initialState, schema);
 
   const onSubmit = async (data) => {
-    try {
-      await signIn(data.email, data.password);
-      navigate("/");
-    } catch (e) {
-      console.log(e);
-    }
+    await signIn(data.email, data.password);
   };
 
   return (
@@ -54,9 +45,9 @@ const Login = () => {
           onFocus={handleFocus}
           onBlur={handleBlur}
         />
-        {isError && (
+        {error && (
           <div className={styles.warn}>
-            <span>{isError}</span>
+            <span>{error}</span>
           </div>
         )}
 
