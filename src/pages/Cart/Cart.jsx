@@ -43,7 +43,7 @@ const Cart = () => {
 						</IButton>
 						<section className={styles.content}>
 							{cart.map((cartItem) => (
-								<CartItem key={cartItem.id} cartItem={cartItem} />
+								<CartItem key={cartItem.key} cartItem={cartItem} />
 							))}
 
 							<div className={styles.extra}>

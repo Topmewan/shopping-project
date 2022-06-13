@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
-import { ReactComponent as Logo } from '../../assets/navbar/Лого.svg';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { ReactComponent as Cart } from '../../assets/navbar/cart.svg';
 import { ReactComponent as Profile } from '../../assets/navbar/profile.svg';
 import { ReactComponent as Logout } from '../../assets/navbar/logout.svg';
@@ -14,7 +13,6 @@ import styles from './Navbar.module.scss';
 
 const Navbar = () => {
 	const dispatch = useDispatch();
-	const navigate = useNavigate();
 	const location = useLocation();
 	const { totalQuantity, cart } = useSelector((state) => state.cart);
 	const { user, logOut } = UserAuth();
@@ -40,7 +38,7 @@ const Navbar = () => {
 		<div className={styles.header}>
 			<div className={styles.container}>
 				<Link to='/'>
-					<Logo />
+					<h2>Logo</h2>
 				</Link>
 
 				<button onClick={handleMenu} className={styles.menuButton}>
