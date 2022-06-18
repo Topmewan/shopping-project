@@ -28,6 +28,7 @@ const Shop = () => {
 					<>
 						<Typography variant='title'>Магазин</Typography>
 						<Filter getFilter={getFilter} filterVal={filter} />
+
 						<div className={styles.sort}>
 							<IButton variant='primary' onClick={() => setSortBy('up')}>
 								По возрастанию
