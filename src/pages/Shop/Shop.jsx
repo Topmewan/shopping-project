@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+
 import { useDispatch, useSelector } from 'react-redux';
 import Filter from './Filter/Filter';
 import { CardItem } from '../../components';
@@ -10,6 +12,7 @@ import { useGetShopItems } from '../../hooks/useGetShopItems';
 import { Pagination } from 'antd';
 
 import styles from './Shop.module.scss';
+import qs from 'qs';
 
 const sortList = [
 	{ sortOrder: 'asc', title: 'Сначала дешевле' },
@@ -17,22 +20,32 @@ const sortList = [
 ];
 
 const Shop = () => {
+	const myRef = useRef();
+	const navigate = useNavigate();
+	const location = useLocation();
+
 	const dispatch = useDispatch();
-	const filter = useSelector((state) => state.filter);
+	const { filter } = useSelector((state) => state.filter);
 	const [order, setOrder] = useState('asc');
 	const [page, setPage] = useState(1);
-
 	const { shopItems, isLoading } = useGetShopItems(filter, order);
+
+	const handleScrooll = () => {
+		const scrollOffset = myRef?.current?.offsetTop;
+		if (scrollOffset) {
+			window.scrollTo(0, scrollOffset);
+		}
+	};
 
 	const handleSetPage = (page) => {
 		setPage(page);
-		window.scrollTo({ top: 0, behavior: 'smooth' });
+		handleScrooll();
 	};
 
-	const getFilter = (val) => {
+	const getFilter = useCallback((val) => {
 		dispatch(setFilter(val));
 		handleSetPage(1);
-	};
+	});
 
 	const handleSort = (order) => {
 		setOrder(order);
@@ -43,14 +56,27 @@ const Shop = () => {
 		return idx + 1 <= page * 9 && idx + 1 >= page * 9 - 9;
 	});
 
+	useEffect(() => {
+		navigate(`?category=${filter}&sortBy=price&order=${order}&page=${page}`);
+	}, [navigate, filter, order, page]);
+
+	useEffect(() => {
+		const queryStr = location.search.substring(1);
+		if (queryStr.length > 0) {
+			const parseStr = qs.parse(queryStr);
+			dispatch(setFilter(parseStr?.category));
+			handleSetPage(Number(parseStr?.page));
+			setOrder(parseStr?.order);
+		}
+		return;
+	}, [location.search]);
+
 	return (
 		<section className={styles.shop}>
 			<div className={styles.container}>
 				<Typography variant='title'>Магазин</Typography>
-
 				{/* FILTER */}
 				<Filter getFilter={getFilter} filterVal={filter} />
-
 				{/* SORT */}
 				<div className={styles.sort}>
 					{sortList.map(({ sortOrder, title }, idx) => (
@@ -64,9 +90,8 @@ const Shop = () => {
 						</IButton>
 					))}
 				</div>
-
 				{/* CONTENT */}
-				<section className={styles.content}>
+				<section className={styles.content} ref={myRef}>
 					{isLoading ? (
 						<Spinner />
 					) : (
