@@ -28,6 +28,19 @@
 				margin-left: auto;
 				margin-right: auto;
 			}
+
+			.active {
+				background-color: #509498;
+				color: white;
+			}
+		}
+
+		.content {
+			width: 100%;
+			min-height: 600px;
+			position: relative;
+			display: flex;
+			flex-direction: column;
 		}
 
 		.list {

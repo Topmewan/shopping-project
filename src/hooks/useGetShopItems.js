@@ -1,17 +1,18 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchItems } from "../feature/reducers/Items/items.actions";
-export const useGetShopItems = () => {
-  const dispatch = useDispatch();
-  const { shopItems, isLoading, isError } = useSelector((state) => state.items);
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchItems } from '../feature/reducers/Items/items.actions';
 
-  useEffect(() => {
-    dispatch(fetchItems());
-  }, [dispatch]);
+export const useGetShopItems = (category, order) => {
+	const dispatch = useDispatch();
+	const { shopItems, isLoading, isError } = useSelector((state) => state.items);
 
-  return {
-    shopItems,
-    isLoading,
-    isError,
-  };
+	useEffect(() => {
+		dispatch(fetchItems({ category, order }));
+	}, [dispatch, category, order]);
+
+	return {
+		shopItems,
+		isLoading,
+		isError,
+	};
 };
